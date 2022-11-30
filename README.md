@@ -1,1 +1,1 @@
-**Steady-State-Visual-Evoked-Potential (SSVEP)**
+**Steady State Visual Evoked Potential (SSVEP)**
