@@ -14,5 +14,8 @@ For SSVEP stimulation, flash stimulus (F=13, 17, 21 Hz) technique has been chose
 
 ![image](https://user-images.githubusercontent.com/96347878/205325217-3242090d-1437-4d42-8a38-0b86f755aeb7.png)
 
+
+Power Spectral Density Analysis (PSDA):
+
 canonical correlation analysis (CCA) method
 multivariate synchronization index method (MSI)
