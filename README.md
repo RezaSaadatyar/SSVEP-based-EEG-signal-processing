@@ -15,7 +15,10 @@ For SSVEP stimulation, flash stimulus (F=13, 17, 21 Hz) technique has been chose
 ![image](https://user-images.githubusercontent.com/96347878/205325217-3242090d-1437-4d42-8a38-0b86f755aeb7.png)
 
 
-Power Spectral Density Analysis (PSDA):
+***Power Spectral Density Analysis (PSDA):*** The PSDA method is often used for SSVEP detection, which is related to frequency domain signal processing. The power spectral density analysis is implemented by calculating the signal/noise ratio based on the power densities around the stimulus frequencies
 
-canonical correlation analysis (CCA) method
+![image](https://user-images.githubusercontent.com/96347878/205339199-b8f1ccc2-d97e-4552-a773-150e8c0900ed.png)
+
+
+canonical correlation analysis (CCA) method:
 multivariate synchronization index method (MSI)
