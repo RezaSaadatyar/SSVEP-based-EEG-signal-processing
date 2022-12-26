@@ -1,3 +1,8 @@
+**Brain Computer Interfaces (BCI):**<br/>
+The BCI system measures the activity of the central nervous system (CNS) and converts it into artificial output that alters, restores, enhances, supplements, or improves natural CNS output. The CNS is then able to interact with its external and internal environments in a different way.
+
+
+
 **Steady State Visual Evoked Potential (SSVEP)**
 
 SSVEP based BCI system must reflect flickering lights stimulus at different frequencies to the user. The best response for these stimulus are obtained for stimulation frequencies between 5 and 20 Hz. The response signals of these stimuli can be detected from the scalp. SSVEP based BCI systems analyze this signals.
