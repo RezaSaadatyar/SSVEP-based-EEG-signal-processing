@@ -1,11 +1,10 @@
 **Brain Computer Interfaces (BCI):**<br/>
-The BCI system measures the activity of the central nervous system (CNS) and converts it into artificial output that alters, restores, enhances, supplements, or improves natural CNS output. The CNS is then able to interact with its external and internal environments in a different way.
+"BCI" is a method of measuring central nervous system activity and converting it into artificial output that can replace, restore, enhance, supplement, or improve natural CNS output and alter the ongoing interactions between the CNS and its external or internal environment.
 
 ![Blank diagram - Page 1 (2)](https://user-images.githubusercontent.com/96347878/209509769-94b59f30-44a8-4b5f-8465-1996d35b5d0b.png)
 
-
-![Blank diagram - Page 1 (1)](https://user-images.githubusercontent.com/96347878/209508589-2490054d-62bb-40e9-a4ee-13d3ff9002ad.png)
-
+![Blank diagram - Page 1 (1)](https://user-images.githubusercontent.com/96347878/209508589-2490054d-62bb-40e9-a4ee-13d3ff9002ad.png)<br/>
+BCIs can be categorized based on their dependability as dependent or independent. Dependent BCIs are those that enable individuals to use some form of motor control, such as gaze. The use of BCIs based on motor imagery is a common example of dependent BCIs. A BCI without motor control, on the other hand, can be used by stroke survivors or those with locked-in syndrome.
 
 
 **Steady State Visual Evoked Potential (SSVEP)**
