@@ -1,7 +1,7 @@
 **Brain Computer Interfaces (BCI):**<br/>
 The BCI system measures the activity of the central nervous system (CNS) and converts it into artificial output that alters, restores, enhances, supplements, or improves natural CNS output. The CNS is then able to interact with its external and internal environments in a different way.
 
-
+![Blank diagram - Page 1](https://user-images.githubusercontent.com/96347878/209503917-cd884799-9142-4a5f-a546-3ed0859414bf.png)
 
 **Steady State Visual Evoked Potential (SSVEP)**
 
