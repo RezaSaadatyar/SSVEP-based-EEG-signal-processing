@@ -1,10 +1,11 @@
 :one: **Brain Computer Interfaces (BCI):**<br/>
 "BCI" is a method of measuring central nervous system activity and converting it into artificial output that can replace, restore, enhance, supplement, or improve natural CNS output and alter the ongoing interactions between the CNS and its external or internal environment.
 
-![Blank diagram - Page 1 (2)](https://user-images.githubusercontent.com/96347878/209509769-94b59f30-44a8-4b5f-8465-1996d35b5d0b.png)
+![Blank diagram - Page 1 (2)](https://user-images.githubusercontent.com/96347878/209584607-b819be1b-70a0-4706-9d5a-fed87ef27aef.png)
 
-![Blank diagram - Page 1 (1)](https://user-images.githubusercontent.com/96347878/209508589-2490054d-62bb-40e9-a4ee-13d3ff9002ad.png)<br/>
-BCIs can be categorized based on their dependability as dependent or independent. Dependent BCIs are those that enable individuals to use some form of motor control, such as gaze. The use of BCIs based on motor imagery is a common example of dependent BCIs. A BCI without motor control, on the other hand, can be used by stroke survivors or those with locked-in syndrome. Synchronous BCI involves the subject responding to cues imposed by the system over a set period of time. As opposed to synchronous BCI, asynchronous BCI allows the subject to communicate with the application at any time. BCIs that are synchronous have a lower usability than those that are asynchronous.
+![Blank diagram - Page 1 (1)](https://user-images.githubusercontent.com/96347878/209584696-fb5f1cde-1271-40ba-bd23-e80a74f3b284.png)
+
+BCIs can be categorized based on their dependability as ***dependent*** or ***independent***. ***Dependent BCIs*** are those that enable individuals to use some form of ***motor control***, such as gaze. The use of BCIs based on ***motor imagery*** is a common example of dependent BCIs. A BCI without motor control, on the other hand, can be used by ***stroke survivors*** or those with ***locked-in syndrome***. Synchronous BCI involves the subject responding to cues imposed by the system over a set period of time. As opposed to synchronous BCI, asynchronous BCI allows the subject to communicate with the application at any time. BCIs that are synchronous have a lower usability than those that are asynchronous.
 
 :black_medium_square: **EEG Paradigms used in BCI:**<br/>
 - Motor Imagery (MI) ***[(Further information)](https://github.com/RezaSaadatyar/Motor-imagery-based-EEG-signal-processing)***
