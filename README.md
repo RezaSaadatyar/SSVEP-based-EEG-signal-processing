@@ -28,9 +28,10 @@ In a biological visual system, the visual pathway starts with the retina and eac
 ----
 
 :three:**Experimental setup**<br/>
-For SSVEP stimulation, flash stimulus (F=13, 17, 21 Hz) technique has been chosen. The eight electrodes are placed according to the 10/20 system on Oz, O1, O2, POz, PO3, PO4, PO7 and PO8. The ground was placed on Fz and the reference was located on the right (or left) hear mastoid.<br/>
-[Dataset](https://github.com/sylvchev/dataset-ssvep-led)
-
+- [Dataset](https://github.com/sylvchev/dataset-ssvep-led)
+- Sampling rate : 250 Hz
+- Stimulus frequencies : 13, 17, 21 Hz
+- Number of channels : 9 (Oz, O1, O2, POz, PO3, PO4, PO7 and PO8; Fz: Reference)
 ![image](https://user-images.githubusercontent.com/96347878/205325207-ced004db-8d81-42ac-bd2b-b328e55de82c.png)
 
 ![image](https://user-images.githubusercontent.com/96347878/205325217-3242090d-1437-4d42-8a38-0b86f755aeb7.png)
