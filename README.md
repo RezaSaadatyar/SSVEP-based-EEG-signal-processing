@@ -23,11 +23,11 @@ In SSVEP-based BCIs, visual stimuli are triggered at constant frequencies betwee
 
 In a biological visual system, the visual pathway starts with the retina and each unit has a corresponding function.
 
-![visual_stream_small](https://user-images.githubusercontent.com/96347878/209621597-ea3b18e3-7391-445b-bcf4-a8443080a709.png)
+![Blank diagram - Page 1](https://user-images.githubusercontent.com/96347878/209627515-0b65056e-daa5-4e82-85ff-f630d3e19f53.png)
 
+----
 
-
-**Experimental setup**<br/>
+:three:**Experimental setup**<br/>
 For SSVEP stimulation, flash stimulus (F=13, 17, 21 Hz) technique has been chosen. The eight electrodes are placed according to the 10/20 system on Oz, O1, O2, POz, PO3, PO4, PO7 and PO8. The ground was placed on Fz and the reference was located on the right (or left) hear mastoid.
 
 
