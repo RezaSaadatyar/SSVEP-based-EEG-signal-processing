@@ -19,7 +19,7 @@ The SSAEP are usually extracted using trains of click stimuli, tone pulses, or a
 - ***SSSEP***<br/>
 The SSSEP paradigm uses vibrotactile sensors to produce stimulation at distant frequencies, which are mounted on predetermined parts of the body.  
 - ***SSVEP:***<br/>
-In SSVEP-based BCIs, visual stimuli are triggered at constant frequencies between 3.5 and 75 Hz. The best response for these stimulus are obtained for stimulation frequencies between 5 and 20 Hz. Focusing on a fickering stimulus generates an SSVEP with the same frequency as the target ficker.  One of the most widely used BCI applications is speller recognition, since it transmits information at a higher rate compared to other paradigms.
+In SSVEP-based BCIs, visual stimuli are triggered at constant frequencies between 3.5 and 75 Hz. The best response for these stimulus are obtained for stimulation frequencies between 5 and 20 Hz. Focusing on a fickering stimulus generates an SSVEP with the same frequency as the target ficker.  One of the most widely used BCI applications is speller recognition, since it transmits information at a higher rate compared to other paradigms. Since a SSVEP can transmit information at a high rate and require little training, it is widely used in numerous applications, like spellers, smart homes, games, robot control, and exoskeleton control
 
 In a biological visual system, the visual pathway starts with the retina and each unit has a corresponding function.
 
@@ -28,8 +28,8 @@ In a biological visual system, the visual pathway starts with the retina and eac
 ----
 
 :three:**Experimental setup**<br/>
-For SSVEP stimulation, flash stimulus (F=13, 17, 21 Hz) technique has been chosen. The eight electrodes are placed according to the 10/20 system on Oz, O1, O2, POz, PO3, PO4, PO7 and PO8. The ground was placed on Fz and the reference was located on the right (or left) hear mastoid.
-
+For SSVEP stimulation, flash stimulus (F=13, 17, 21 Hz) technique has been chosen. The eight electrodes are placed according to the 10/20 system on Oz, O1, O2, POz, PO3, PO4, PO7 and PO8. The ground was placed on Fz and the reference was located on the right (or left) hear mastoid.<br/>
+[(Dataset)](https://github.com/RezaSaadatyar/Motor-imagery-based-EEG-signal-processing)
 
 ![image](https://user-images.githubusercontent.com/96347878/205325207-ced004db-8d81-42ac-bd2b-b328e55de82c.png)
 
