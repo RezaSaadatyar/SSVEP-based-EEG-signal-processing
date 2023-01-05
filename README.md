@@ -29,10 +29,11 @@ In a biological visual system, the visual pathway starts with the retina and eac
 
 :three:**Experimental setup**<br/>
 - [Dataset](https://github.com/sylvchev/dataset-ssvep-led)
-- Sampling rate : 250 Hz
+- Sampling rate : 256 Hz
 - Stimulus frequencies : 13, 17, 21 Hz
 - Number of channels : 9 (Oz, O1, O2, POz, PO3, PO4, PO7 and PO8; Fz: Reference)
 - For each trial, a 5-second is used for stimuli and a 3-second for pauses, and a total of 160 trials were recorded for each subject.
+- Trial length: 256*5=1280 ---> 1280*8 (Number channels)
 
 ***Convert gdf data to mat:***<br/>
 biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] = sload('file name.gdf ') in commoand window then save Signal and Inform.
