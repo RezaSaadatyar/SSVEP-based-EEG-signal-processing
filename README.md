@@ -33,8 +33,8 @@ In a biological visual system, the visual pathway starts with the retina and eac
 - Stimulus frequencies : 13, 17, 21 Hz
 - Number of channels : 9 (Oz, O1, O2, POz, PO3, PO4, PO7 and PO8; Fz: Reference)
 
-***Convert gdf data to mat:*** 
-biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] = sload('file name.gdf ') in commoand window then save Signal and Inform
+***Convert gdf data to mat:***<br/>
+biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] = sload('file name.gdf ') in commoand window then save Signal and Inform.
 
 
 '''
