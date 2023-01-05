@@ -34,9 +34,15 @@ In a biological visual system, the visual pathway starts with the retina and eac
 - Number of channels : 9 (Oz, O1, O2, POz, PO3, PO4, PO7 and PO8; Fz: Reference)
 - For each trial, a 5-second is used for stimuli and a 3-second for pauses, and a total of 160 trials were recorded for each subject.
 - Trial length: 256*5=1280 ---> 1280*8 (Number channels)
+- A trial start with a Label_XX stimulation code indicating the class of the example. 
+   - Label_01 ---> 13Hz stimulation (33025)
+   - Label_02 ---> 21Hz stimulation (33026) 
+   - Label_03 ---> 17Hz stimulation (33027)
 
 ***Convert gdf data to mat:***<br/>
 biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] = sload('file name.gdf ') in commoand window then save Signal and Inform.
+- Inform.EVENT.TYP ---> Label trials
+- Inform.EVENT.Pos ---> Time start the trials
 
 
 '''
