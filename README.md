@@ -58,3 +58,5 @@ biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] 
 ***canonical correlation analysis (CCA) method:***
 
 ***multivariate synchronization index method (MSI)***
+
+
