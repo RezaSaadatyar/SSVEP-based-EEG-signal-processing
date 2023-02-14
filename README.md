@@ -66,7 +66,6 @@ $$βi( f )=\sum_{k=0}^D φk.(\lambda_k)^2  \leftarrow φk=k^{-a}+b   \Longleftar
    - Method 3: sub-bands covering multiple harmonic frequency bands
  ![7](https://user-images.githubusercontent.com/96347878/218873107-ae3bed8c-218d-4783-ba2e-3ab6841955aa.JPG)
 
-
-***multivariate synchronization index method (MSI)***
+***Multivariate synchronization index method (MSI):*** The MSI was proposed based on the theory of S-estimator. It calculates correlation based on the entropy of the normalized eigenvalues of a multichannel signal's covariance matrix. The estimation of the covariance matrix in the MSI method ignores the temporally local structure of samples.
 
 
