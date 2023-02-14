@@ -42,7 +42,8 @@ biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] 
 
 *App3_Plot_Trial.m;  App4_Filter_Signal.m:* :arrow_lower_right:<br/>
 
-![1](https://user-images.githubusercontent.com/96347878/218712557-ad019568-aee7-41e7-a608-6bc8ae85ba76.png) ![2](https://user-images.githubusercontent.com/96347878/218712566-edf96921-dc4e-404c-9762-f52194a5cfec.png) ![3](https://user-images.githubusercontent.com/96347878/218712590-e8c0df20-0010-433b-9136-344b711358d6.png)
+![1](https://user-images.githubusercontent.com/96347878/218717042-02bdc58d-5a73-4cb2-981a-d049119ce0ed.png) ![2](https://user-images.githubusercontent.com/96347878/218717022-2f2673fa-76e8-4b85-a51f-f16a3420115f.png)
+
 
 
 
