@@ -9,7 +9,6 @@
 ![Blank diagram - Page 1 (2)](https://user-images.githubusercontent.com/96347878/209584607-b819be1b-70a0-4706-9d5a-fed87ef27aef.png) ![Blank diagram - Page 1 (1)](https://user-images.githubusercontent.com/96347878/209584696-fb5f1cde-1271-40ba-bd23-e80a74f3b284.png)
 
 ---
-
 :two: **Steady‑State Evoked Potentials (SSEP):**<br/>
 According to visual, auditory, and somatosensory stimulation, SSEP are classified as ***Steady-State Visually Evoked Potentials (SSVEP)***, ***Steady-State Auditory Evoked Potentials (SSAEP)***, and ***Steady-State Somatosensory Evoked Potentials (SSSEP)***.
 - ***SSAEP:***<br/>
@@ -56,10 +55,11 @@ biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] 
 **Power Spectral Density Analysis (PSDA):** The PSDA method is often used for SSVEP detection, which is related to frequency domain signal processing. The power spectral density analysis is implemented by calculating the signal/noise ratio based on the power densities around the stimulus frequencies.<br/>
 
 *App5_Filter_CAR.m; App6_PSDA_a_trial.m:* :arrow_lower_right:<br/>
-![3](https://user-images.githubusercontent.com/96347878/218726457-8b5d6773-f33a-4e97-9a76-166e3654d6dc.png) ![4](https://user-images.githubusercontent.com/96347878/218726433-d36dbd69-167a-41c4-8b06-26c3fa3104b8.png)
+![3](https://user-images.githubusercontent.com/96347878/218726457-8b5d6773-f33a-4e97-9a76-166e3654d6dc.png) ![4](https://user-images.githubusercontent.com/96347878/218726433-d36dbd69-167a-41c4-8b06-26c3fa3104b8.png)<br/>
 
-
-***canonical correlation analysis (CCA) method:***
+***canonical correlation analysis (CCA) method:*** The CCA-based frequency recognition method is one of the widely used methods in SSVEP-based BCI, and several extended version were proposed in the past decade. CCA measures the correlation between two multidimensional variables, and it can produce multiple canonical correlation coefficients. The largest coefficient was usually used for frequency recognition, the remaining coefficients were optionally discarded. The scalp EEG data often contain noise and artifacts. Scalp EEG data often contain noise and artifacts. When using CCA for frequency detection with EEG data, noise and artifacts may result in discriminative information spanning all or parts of the canonical correlation coefficients, and discarding other coefficients may result in loss of useful information for frequency detection.
+ - FoCCA
+ - Filter bank CCA
 
 ***multivariate synchronization index method (MSI)***
 
