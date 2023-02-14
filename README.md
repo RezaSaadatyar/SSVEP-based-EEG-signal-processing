@@ -36,10 +36,11 @@ In a biological visual system, the visual pathway starts with the retina and eac
    - Label_03 ---> 17Hz stimulation (33027)
 
 ***Convert gdf data to mat:***<br/>
-biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] = sload('file name.gdf ') in commoand window then save Signal and Inform (App1_Data_Preprocessing_a_trial.m).
+biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] = sload('file name.gdf ') in commoand window then save Signal and Inform (App1_Data_Preprocessing_a_trial.m; App2_Data_Preprocessing_all_trial.m).
 - Inform.EVENT.TYP ---> Label trials
 - Inform.EVENT.Pos ---> Time start the trials
 
+*App3_Plot_Trial.m;  App4_Filter_Signal.m:* :arrow_lower_right:<br/>
 ![1](https://user-images.githubusercontent.com/96347878/218684145-721a4874-7451-4190-894a-9180dba3fe68.png) ![2](https://user-images.githubusercontent.com/96347878/218684128-6dba4d4b-fdd1-4cd5-81aa-f29af2ab6273.png)
 
 ----
