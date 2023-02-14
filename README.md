@@ -64,7 +64,7 @@ $$βi( f )=\sum_{k=0}^D φk.(\lambda_k)^2  \leftarrow φk=k^{-a}+b   \Longleftar
    - Method 1: sub-bands with equally spaced bandwidths
    - Method 2: sub-bands corresponding to individual harmonic frequency bands
    - Method 3: sub-bands covering multiple harmonic frequency bands
- 
+ ![image](https://user-images.githubusercontent.com/96347878/218847804-ce249d29-ee8a-4d0b-b9c4-d57a2e281323.png)
 
 
 ***multivariate synchronization index method (MSI)***
