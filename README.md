@@ -45,11 +45,13 @@ biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] 
 ![1](https://user-images.githubusercontent.com/96347878/218717042-02bdc58d-5a73-4cb2-981a-d049119ce0ed.png) ![2](https://user-images.githubusercontent.com/96347878/218717022-2f2673fa-76e8-4b85-a51f-f16a3420115f.png)
 
 ----
-**Spatial filter:** Spatial filters are commonly used to improve the signal-to-noise ratio (SNR) of EEG. In a spatial filter, the signal from the EEG electrodes is mixed in such a way that the signal of interest is enhanced, while noise or artifact components are reduced.
+**Spatial filtering approaches:** Spatial filters are commonly used to improve the signal-to-noise ratio (SNR) of EEG. In a spatial filter, the signal from the EEG electrodes is mixed in such a way that the signal of interest is enhanced, while noise or artifact components are reduced.
  - Common average reference (CAR)
  - Small Laplacian
  - Large Laplacian 
- - Common spatial pattern analysis (CSP)<br/>
+ - Common spatial pattern analysis (CSP)
+ - Canonical correlation analysis (CCA)
+ <br/>
  
 **Power Spectral Density Analysis (PSDA):** The PSDA method is often used for SSVEP detection, which is related to frequency domain signal processing. The power spectral density analysis is implemented by calculating the signal/noise ratio based on the power densities around the stimulus frequencies.<br/>
 
