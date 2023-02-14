@@ -6,9 +6,7 @@
 - Event‑Related Potential (ERP)
 - Steady‑State Evoked Potentials (SSEP)
 
-![Blank diagram - Page 1 (2)](https://user-images.githubusercontent.com/96347878/209584607-b819be1b-70a0-4706-9d5a-fed87ef27aef.png)
-
-![Blank diagram - Page 1 (1)](https://user-images.githubusercontent.com/96347878/209584696-fb5f1cde-1271-40ba-bd23-e80a74f3b284.png)
+![Blank diagram - Page 1 (2)](https://user-images.githubusercontent.com/96347878/209584607-b819be1b-70a0-4706-9d5a-fed87ef27aef.png) ![Blank diagram - Page 1 (1)](https://user-images.githubusercontent.com/96347878/209584696-fb5f1cde-1271-40ba-bd23-e80a74f3b284.png)
 
 ---
 
@@ -21,9 +19,7 @@ The SSSEP paradigm uses vibrotactile sensors to produce stimulation at distant f
 - ***SSVEP:***<br/>
 In SSVEP-based BCIs, visual stimuli are triggered at constant frequencies between 3.5 and 75 Hz. The best response for these stimulus are obtained for stimulation frequencies between 5 and 20 Hz. Focusing on a fickering stimulus generates an SSVEP with the same frequency as the target ficker.  One of the most widely used BCI applications is speller recognition, since it transmits information at a higher rate compared to other paradigms. Since a SSVEP can transmit information at a high rate and require little training, it is widely used in numerous applications, like spellers, smart homes, games, robot control, and exoskeleton control
 
-In a biological visual system, the visual pathway starts with the retina and each unit has a corresponding function.
-
-![Blank diagram - Page 1](https://user-images.githubusercontent.com/96347878/209627515-0b65056e-daa5-4e82-85ff-f630d3e19f53.png)
+In a biological visual system, the visual pathway starts with the retina and each unit has a corresponding function. ![Blank diagram - Page 1](https://user-images.githubusercontent.com/96347878/209627515-0b65056e-daa5-4e82-85ff-f630d3e19f53.png)
 
 ----
 
@@ -40,7 +36,7 @@ In a biological visual system, the visual pathway starts with the retina and eac
    - Label_03 ---> 17Hz stimulation (33027)
 
 ***Convert gdf data to mat:***<br/>
-biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] = sload('file name.gdf ') in commoand window then save Signal and Inform.
+biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] = sload('file name.gdf ') in commoand window then save Signal and Inform (App1_Data_Preprocessing_a_trial.m).
 - Inform.EVENT.TYP ---> Label trials
 - Inform.EVENT.Pos ---> Time start the trials
 
