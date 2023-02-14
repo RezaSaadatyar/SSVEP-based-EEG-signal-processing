@@ -42,9 +42,8 @@ biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] 
 
 
 '''
-![image](https://user-images.githubusercontent.com/96347878/205325207-ced004db-8d81-42ac-bd2b-b328e55de82c.png)
+![1](https://user-images.githubusercontent.com/96347878/218681641-da22e8de-a6ea-4993-a9b2-3bd47a17e8b6.png) ![2](https://user-images.githubusercontent.com/96347878/218682467-c4ffe28f-0142-4ddb-b4a7-da24338bf2a6.png)
 
-![image](https://user-images.githubusercontent.com/96347878/205325217-3242090d-1437-4d42-8a38-0b86f755aeb7.png)
 
 ***Power Spectral Density Analysis (PSDA):*** The PSDA method is often used for SSVEP detection, which is related to frequency domain signal processing. The power spectral density analysis is implemented by calculating the signal/noise ratio based on the power densities around the stimulus frequencies
 
