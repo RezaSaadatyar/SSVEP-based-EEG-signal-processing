@@ -40,11 +40,9 @@ biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] 
 - Inform.EVENT.TYP ---> Label trials
 - Inform.EVENT.Pos ---> Time start the trials
 
+![1](https://user-images.githubusercontent.com/96347878/218684145-721a4874-7451-4190-894a-9180dba3fe68.png) ![2](https://user-images.githubusercontent.com/96347878/218684128-6dba4d4b-fdd1-4cd5-81aa-f29af2ab6273.png)
 
-'''
-![1](https://user-images.githubusercontent.com/96347878/218681641-da22e8de-a6ea-4993-a9b2-3bd47a17e8b6.png) ![2](https://user-images.githubusercontent.com/96347878/218682467-c4ffe28f-0142-4ddb-b4a7-da24338bf2a6.png)
-
-
+----
 ***Power Spectral Density Analysis (PSDA):*** The PSDA method is often used for SSVEP detection, which is related to frequency domain signal processing. The power spectral density analysis is implemented by calculating the signal/noise ratio based on the power densities around the stimulus frequencies
 
 ![image](https://user-images.githubusercontent.com/96347878/205339199-b8f1ccc2-d97e-4552-a773-150e8c0900ed.png)
