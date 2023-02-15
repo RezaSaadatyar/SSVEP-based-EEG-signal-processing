@@ -61,7 +61,8 @@ biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] 
       - Method 2: sub-bands corresponding to individual harmonic frequency bands
       - Method 3: sub-bands covering multiple harmonic frequency bands
 
-    ***Multivariate synchronization index method (MSI):*** <br/>The MSI was proposed based on the theory of S-estimator. It calculates correlation based on the entropy of the normalized eigenvalues of a multichannel signal's covariance matrix. The estimation of the covariance matrix in the MSI method ignores the temporally local structure of samples.
+    ***Multivariate synchronization index method (MSI):*** <br/>The MSI was proposed based on the theory of S-estimator. It calculates correlation based on the entropy of the normalized eigenvalues of a multichannel signal's covariance matrix. The estimation of the covariance matrix in the MSI method ignores the temporally local structure of samples.<br/>
+    ***Fast Fourier Transform (FFT)**<br/>
 
 
  *App5_Filter_CAR.m; App6_PSDA_a_trial.m:* :arrow_lower_right:<br/>
