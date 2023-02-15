@@ -63,6 +63,7 @@ biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] 
 
     ***Multivariate synchronization index method (MSI):*** <br/>The MSI was proposed based on the theory of S-estimator. It calculates correlation based on the entropy of the normalized eigenvalues of a multichannel signal's covariance matrix. The estimation of the covariance matrix in the MSI method ignores the temporally local structure of samples.<br/>
     ***Fast Fourier Transform (FFT)***<br/>
-  *App5_Filter_CAR.m; App6_PSDA_a_trial.m:* :arrow_lower_right:<br/>  
+  *App5_Filter_CAR.m; App6_PSDA_a_trial.m:* :arrow_lower_right:
+
 ![3](https://user-images.githubusercontent.com/96347878/218726457-8b5d6773-f33a-4e97-9a76-166e3654d6dc.png) ![4](https://user-images.githubusercontent.com/96347878/218726433-d36dbd69-167a-41c4-8b06-26c3fa3104b8.png)<br/>
 ![7](https://user-images.githubusercontent.com/96347878/218873107-ae3bed8c-218d-4783-ba2e-3ab6841955aa.JPG)
