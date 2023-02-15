@@ -1,4 +1,4 @@
-:one:**Introduction**
+:one: **Introduction**
 
 - [x] **Brain Computer Interfaces (BCI):**<br/>
 "BCI" is a method of measuring central nervous system activity and converting it into artificial output that can replace, restore, enhance, supplement, or improve natural CNS output and alter the ongoing interactions between the CNS and its external or internal environment. BCIs can be categorized based on their dependability as ***dependent*** or ***independent***. ***Dependent BCIs*** are those that enable individuals to use some form of ***motor control***, such as gaze. The use of BCIs based on ***motor imagery*** is a common example of dependent BCIs. A BCI without motor control, on the other hand, can be used by ***stroke survivors*** or those with ***locked-in syndrome***. Synchronous BCI involves the subject responding to cues imposed by the system over a set period of time. As opposed to synchronous BCI, asynchronous BCI allows the subject to communicate with the application at any time. BCIs that are synchronous have a lower usability than those that are asynchronous.
@@ -22,36 +22,38 @@ In SSVEP-based BCIs, visual stimuli are triggered at constant frequencies betwee
 
 ----
 
-:three:**Experimental setup**<br/>
-- [Dataset](https://github.com/sylvchev/dataset-ssvep-led)
-- Sampling rate : 256 Hz
-- Stimulus frequencies : 13, 17, 21 Hz
-- Number of channels : 9 (Oz, O1, O2, POz, PO3, PO4, PO7 and PO8; Fz: Reference)
-- For each trial, a 5-second is used for stimuli and a 3-second for pauses, and a total of 160 trials were recorded for each subject.
-- Trial length: 256*5=1280 ---> 1280*8 (Number channels)
-- A trial start with a Label_XX stimulation code indicating the class of the example. 
-   - Label_01 ---> 13Hz stimulation (33025)
-   - Label_02 ---> 21Hz stimulation (33026) 
-   - Label_03 ---> 17Hz stimulation (33027)
+:two: **Methods**
 
-***Convert gdf data to mat:***<br/>
-biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] = sload('file name.gdf ') in commoand window then save Signal and Inform (App1_Data_Preprocessing_a_trial.m; App2_Data_Preprocessing_all_trial.m).
-- Inform.EVENT.TYP ---> Label trials
-- Inform.EVENT.Pos ---> Time start the trials
+- [x] **Experimental setup**<br/>
+  - [Dataset](https://github.com/sylvchev/dataset-ssvep-led)
+  - Sampling rate : 256 Hz
+  - Stimulus frequencies : 13, 17, 21 Hz
+  - Number of channels : 9 (Oz, O1, O2, POz, PO3, PO4, PO7 and PO8; Fz: Reference)
+  - For each trial, a 5-second is used for stimuli and a 3-second for pauses, and a total of 160 trials were recorded for each subject.
+  - Trial length: 256*5=1280 ---> 1280*8 (Number channels)
+  - A trial start with a Label_XX stimulation code indicating the class of the example. 
+    - Label_01 ---> 13Hz stimulation (33025)
+    - Label_02 ---> 21Hz stimulation (33026) 
+    - Label_03 ---> 17Hz stimulation (33027)
+
+- [x] **Data pre-processing**<br/>
+        ***Convert gdf data to mat:***<br/>
+biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] = sload('file name.gdf ') in commoand window then save Signal and Inform (*App1_Data_Preprocessing_a_trial.m; App2_Data_Preprocessing_all_trial.m*).<br/>
+       Inform.EVENT.TYP ---> Label trials<br/>
+       Inform.EVENT.Pos ---> Time start the trials<br/>
 
 *App3_Plot_Trial.m;  App4_Filter_Signal.m:* :arrow_lower_right:<br/>
 
 ![1](https://user-images.githubusercontent.com/96347878/218717042-02bdc58d-5a73-4cb2-981a-d049119ce0ed.png) ![2](https://user-images.githubusercontent.com/96347878/218717022-2f2673fa-76e8-4b85-a51f-f16a3420115f.png)
 
 ----
-**Spatial filtering approaches:**<br/>Spatial filters are commonly used to improve the signal-to-noise ratio (SNR) of EEG. In a spatial filter, the signal from the EEG electrodes is mixed in such a way that the signal of interest is enhanced, while noise or artifact components are reduced.
- - Common average reference (CAR)
- - Small Laplacian
- - Large Laplacian 
- - Common spatial pattern analysis (CSP)
- - Canonical correlation analysis (CCA)
- <br/>
- 
+
+- [x] **Algorithms proposed**<br/> 
+  - [ ] **Spatial filtering approaches:**<br/>Spatial filters are commonly used to improve the signal-to-noise ratio (SNR) of EEG. In a spatial filter, the signal from the EEG electrodes is mixed in such a way that the signal of interest is enhanced, while noise or artifact components are reduced.
+     - Common average reference (CAR)
+     - Small Laplacian
+     - Large Laplacian 
+    
 **Power Spectral Density Analysis (PSDA):**<br/>The PSDA method is often used for SSVEP detection, which is related to frequency domain signal processing. The power spectral density analysis is implemented by calculating the signal/noise ratio based on the power densities around the stimulus frequencies.<br/>
 
 *App5_Filter_CAR.m; App6_PSDA_a_trial.m:* :arrow_lower_right:<br/>
