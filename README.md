@@ -69,3 +69,4 @@ $$βi( f )=\sum_{k=0}^D φk.(\lambda_k)^2  \leftarrow φk=k^{-a}+b   \Longleftar
 ***Multivariate synchronization index method (MSI):*** <br/>The MSI was proposed based on the theory of S-estimator. It calculates correlation based on the entropy of the normalized eigenvalues of a multichannel signal's covariance matrix. The estimation of the covariance matrix in the MSI method ignores the temporally local structure of samples.
 
 
+
