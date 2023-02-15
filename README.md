@@ -67,3 +67,4 @@ biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] 
 
 ![3](https://user-images.githubusercontent.com/96347878/218726457-8b5d6773-f33a-4e97-9a76-166e3654d6dc.png) ![4](https://user-images.githubusercontent.com/96347878/218726433-d36dbd69-167a-41c4-8b06-26c3fa3104b8.png)<br/>
 ![7](https://user-images.githubusercontent.com/96347878/218873107-ae3bed8c-218d-4783-ba2e-3ab6841955aa.JPG)
+
