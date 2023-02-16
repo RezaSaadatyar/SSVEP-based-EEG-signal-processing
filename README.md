@@ -73,7 +73,7 @@ biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] 
 
 - [x] **Performance of Methods:**<br/>
  
-   *App7_PSDA_all_trial.m; App9_CCA_all_trial.m; App10_FOCCA_all_trial.m; App11_FBCCA_all_trial.m; App12_MSI_all_trial.m:* :arrow_down:
+   *App7_PSDA_all_trial.m; App9_CCA_all_trial.m; App10_FOCCA_all_trial.m; App11_FBCCA_all_trial.m; App12_MSI_all_trial.m:* :arrow_lower_right:
 ![10](https://user-images.githubusercontent.com/96347878/219172400-b1076ac9-e282-4d57-8132-6ebd629cc9df.JPG)
 
     *App13_CCA_FeatureExtraction.m:* :arrow_lower_right:<br/>
