@@ -80,6 +80,6 @@ biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] 
 ![10](https://user-images.githubusercontent.com/96347878/219229769-1896befc-7be7-4bc1-aa92-611590491bb0.png)![11](https://user-images.githubusercontent.com/96347878/219230051-79ab3f43-be78-4ddf-8e9f-f6fe5961f41a.png)
 
    *App15_FeatureExtraction_Classification.m:* :arrow_lower_right:<br/>
-![12](https://user-images.githubusercontent.com/96347878/219234156-31c77e8a-0369-4fda-9b7d-b0928675e5bf.png) ![13](https://user-images.githubusercontent.com/96347878/219234169-c2ac863e-77fd-4704-b438-7c8d52b2ab8d.png)
+![12](https://user-images.githubusercontent.com/96347878/219234156-31c77e8a-0369-4fda-9b7d-b0928675e5bf.png)![13](https://user-images.githubusercontent.com/96347878/219234169-c2ac863e-77fd-4704-b438-7c8d52b2ab8d.png)
    
   
