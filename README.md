@@ -76,4 +76,4 @@ biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] 
    *App7_PSDA_all_trial.m; App9_CCA_all_trial.m; App10_FOCCA_all_trial.m; App11_FBCCA_all_trial.m; App12_MSI_all_trial.m:* :arrow_down:
 ![10](https://user-images.githubusercontent.com/96347878/219172400-b1076ac9-e282-4d57-8132-6ebd629cc9df.JPG)
 
-![11](https://user-images.githubusercontent.com/96347878/219229260-e0ed02b3-c9da-4c22-878c-3810b594f0bc.png)![10](https://user-images.githubusercontent.com/96347878/219229253-0ea67665-1663-4dd8-aca3-ffd045185fe7.png)
+![10](https://user-images.githubusercontent.com/96347878/219229572-85662cad-8dee-4dc7-9b13-2a2484e74f31.png)![11](https://user-images.githubusercontent.com/96347878/219229581-85ef83ef-b798-45c8-8316-0d37ff84479e.png)
