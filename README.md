@@ -6,8 +6,7 @@
 - [x] **EEG Paradigms used in BCI:**<br/>
          Motor Imagery (MI) ***[(Further information)](https://github.com/RezaSaadatyar/Motor-imagery-based-EEG-signal-processing)***<br/>
          Event‑Related Potential (ERP)<br/>
-         Steady‑State Evoked Potentials (SSEP)
-
+         Steady‑State Evoked Potentials (SSEP)<br/>
 ![Blank diagram - Page 1 (2)](https://user-images.githubusercontent.com/96347878/209584607-b819be1b-70a0-4706-9d5a-fed87ef27aef.png) ![Blank diagram - Page 1 (1)](https://user-images.githubusercontent.com/96347878/209584696-fb5f1cde-1271-40ba-bd23-e80a74f3b284.png)
 
 - [x] **Steady‑State Evoked Potentials (SSEP):**<br/>
