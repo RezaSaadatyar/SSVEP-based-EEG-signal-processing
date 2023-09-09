@@ -20,7 +20,6 @@ In SSVEP-based BCIs, visual stimuli are triggered at constant frequencies betwee
 - [x] In a biological visual system, the visual pathway starts with the retina and each unit has a corresponding function. ![Blank diagram - Page 1](https://user-images.githubusercontent.com/96347878/209627515-0b65056e-daa5-4e82-85ff-f630d3e19f53.png)
 
 ----
-
 :two: **Methods**
 
 - [x] **Experimental setup**<br/>
