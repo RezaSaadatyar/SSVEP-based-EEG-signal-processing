@@ -3,7 +3,20 @@ import matplotlib.pyplot as plt
 
 # ================================================= Plot data ============================================================
 # Function to plot EEG data
-def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, val_ylim='', size_fig=(7,5), title='', display_figure="off"):
+def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, val_ylim='', size_fig=(7,5), title='', 
+              display_figure="off"):
+    """
+    Parameters:
+    - data: EEG data to be plotted.
+    - fs: Sampling frequency of the EEG data.
+    - channels_name: Names of the EEG channels.
+    - first_point: Index of the first data point to plot.
+    - last_point: Index of the last data point to plot.
+    - val_ylim: Vertical scale factor.
+    - size_fig: Size of the figure.
+    - title: Title of the plot.
+    - display_figure: Whether to display the figure.
+    """
 
     if display_figure == "on":  # Check if the display_figure parameter is set to "on"
         
@@ -22,7 +35,7 @@ def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, 
         else:
             std = np.mean(std)
         
-        _, axs = plt.subplots(nrows=1, sharey='row', figsize=size_fig)
+        _, axs = plt.subplots(nrows=1, sharey='row', figsize=size_fig) # Create subplots for the figure
         offset = np.arange(len(channels_name)*std*val_ylim, 0, -std*val_ylim)
       
         if fs is not None and np.array(fs) > 0: # Check if the sampling frequency is provided 
@@ -46,8 +59,9 @@ def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, 
         for i, label in enumerate(ytick_labels):
             # line[i].set_color(line[i].get_color())
             label.set_color(line[i].get_color())
-            
+        
+        # Auto-scale x-axis and set y-axis limits
         axs.autoscale(enable=True, axis="x",tight=True)
         min_ = np.min(np.min(data + offset, axis=0))
         max_ = np.max(np.max(data + offset, axis=0))
-        axs.set_ylim(min_ + min_*0.02, max_ + max_*0.01) 
+        axs.set_ylim(min_ + min_*0.02, max_ + max_*0.01)
