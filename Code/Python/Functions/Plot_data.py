@@ -22,12 +22,16 @@ def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, 
         
         if type(data).__name__ != 'ndarray': # Convert data to ndarray if it's not already
             data = np.array(data)
-        if data.ndim > 1 and data.shape[0] < data.shape[1]: # Transpose data if it has more columns than rows
-            data = data.T
             
+        if data.ndim < 3 and data.shape[0] < data.shape[1]: 
+            data = data.T
+
         if channels_name is None: # If channel names are not provided, use numerical labels
             channels_name = np.arange(1, data.shape[1]+1)  
-              
+
+        if first_point > len(data) or last_point > len(data):
+            print(f"Error, {first_point = } or {last_point = } > {len(data)}")
+            
         data = data[first_point:last_point,:] # Extract the specified range of data
         std = np.sort(np.std(data, axis=0)) # Calculate the standard deviation of each channel
         if len(std) > 100:
@@ -37,7 +41,7 @@ def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, 
         
         _, axs = plt.subplots(nrows=1, sharey='row', figsize=size_fig) # Create subplots for the figure
         offset = np.arange(len(channels_name)*std*val_ylim, 0, -std*val_ylim)
-      
+
         if fs is not None and np.array(fs) > 0: # Check if the sampling frequency is provided 
             time = (np.linspace(start=first_point/fs, stop=last_point/fs, num=len(data))).flatten()
             line = axs.plot(time, data + offset, linewidth=1)
