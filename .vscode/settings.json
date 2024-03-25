@@ -2,5 +2,5 @@
     "notebook.output.wordWrap": true,
     "notebook.output.scrolling": true,
     "notebook.output.linkifyFilePaths": true,
-    "notebook.output.textLineLimit": 5
+    "notebook.output.textLineLimit": 10
 }
