@@ -3,7 +3,7 @@ import os
 # ================================================= Data path =========================================================
 # Function to construct the path to a data folder and list files within it
 def data_path(folder_path, data_format, depth=0):
-                 # Initialize depth for recursion
+
     contents = sorted(os.listdir(folder_path)) # Get the contents of the folder and sort them
     files = []             # Initialize lists to store files
     folders = []           # Initialize lists to store folders
