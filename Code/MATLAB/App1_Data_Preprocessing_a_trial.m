@@ -6,18 +6,13 @@ clear;          % Clear workspace variables
 close all;      % Close all figures
 %% ------------ Step 1: Convert gdf data to mat using biosig4octmat -------------
 % biosig4octmat ---> biosig ---> run the install code
-method_path = 2;
-if method_path == 1
-    folderPath = 'D:\GitHub\SSVEP-based-EEG-signal-processing\Data'; % Add address data
-    filename=dir(fullfile(folderPath, '*.gdf')); % Read data with gdf format
-    [Signal,Inform]= sload(filename(1).name); % Load the ith gdf file into the Signal and Inform variables    
-else
-    addpath(genpath(cd)) % Add the current directory and its subfolders to the path
-    % Let the user select gdf file(s)
-    filename = uigetfile({'*.gdf','gdf file';'*.*','All Files'},'File Selection','multiselect','off');
-    [Signal, Inform] = sload(filename); % Load gdf data into Signal and Inform variables
-end
+addpath(genpath(cd)) % Add the current directory and its subfolders to the path
+% Let the user select gdf file(s)
+filename = uigetfile({'*.gdf','gdf file';'*.*','All Files'},'File Selection','multiselect','off');
+[Signal, Inform] = sload(filename); % Load gdf data into Signal and Inform variables
 %% ------- Step 2: Define stimulation labels and extract trial information ------
+% Inform.EVENT.TYP:
+% 33024 ---> rest
 % Label_01 ---> 13Hz stimulation (33025)
 % Label_02 ---> 21Hz stimulation (33026)
 % Label_03 ---> 17Hz stimulation (33027).
