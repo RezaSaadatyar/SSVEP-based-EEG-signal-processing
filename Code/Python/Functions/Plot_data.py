@@ -33,7 +33,7 @@ def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, 
             line = axs.plot(data + offset, linewidth=1)
             axs.set_xlabel('sample', fontsize=10)
         
-        axs.set_title(f"chnannels: {len(channels_name)}#; {title}", fontsize=10) # Set subplot properties
+        axs.set_title(f"Channels: {len(channels_name)}#; {title}", fontsize=10) # Set subplot properties
         axs.set_yticks(offset)
         axs.set_yticklabels(channels_name,  weight='bold')
         axs.tick_params(axis='x', labelsize=9)
