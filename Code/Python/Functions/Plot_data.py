@@ -30,7 +30,8 @@ def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, 
             channels_name = np.arange(1, data.shape[1]+1)  
 
         if first_point > len(data) or last_point > len(data):
-            print(f"Error, {first_point = } or {last_point = } > {len(data)}")
+            print(f"Error, {first_point = } or {last_point = } > data size: {len(data)}")
+            return
             
         data = data[first_point:last_point,:] # Extract the specified range of data
         std = np.sort(np.std(data, axis=0)) # Calculate the standard deviation of each channel
