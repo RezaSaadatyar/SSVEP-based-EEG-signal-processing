@@ -2,23 +2,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # ==================================================== fft ===============================================================  
-def fft_(data, data_filtered, fs, channel, trial, title, size_fig=[5, 3]):
+def fft(data, data_filtered, fs, channel, trial, title, size_fig=[5, 3]):
     # ------------------------ Transpose data if it has more rows than columns ---------------------------
-    # if data.ndim == 2 and data.shape[0] < data.shape[1]: 
-    #     data = data.T
-    # elif data.ndim == 3 and data.shape[0] < data.shape[2]:
-    #     data = data.T
     if (data.ndim == 2 and data.shape[0] < data.shape[1]) or (data.ndim == 3 and data.shape[0] < data.shape[2]):
         data = data.T
-        print("ok")
+        
+    if (data_filtered.ndim == 2 and data_filtered.shape[0] < data_filtered.shape[1]) or (data_filtered.ndim == 3 and data_filtered.shape[0] < data_filtered.shape[2]):
+        data_filtered = data_filtered.T
 
     trial = max(0, trial - 1)
     channel= max(0, channel - 1)
-  
-    if data_filtered.ndim == 2 and data_filtered.shape[0] < data_filtered.shape[1]: 
-        data_filtered = data_filtered.T
-    elif data_filtered.ndim == 3 and data_filtered.shape[0] < data_filtered.shape[2]:
-        data_filtered = data_filtered.T
 
     _, axs = plt.subplots(nrows=2, sharey="row", figsize=size_fig) # Create subplots for the figure
     time = (np.linspace(start=0, stop=len(data)/fs, num=len(data))).flatten()
