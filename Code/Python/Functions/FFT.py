@@ -1,15 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# ==================================================== fft ===============================================================  
+# ==================================================== fft ===============================================================
 def fft(data, data_filtered, fs, channel, trial, title, size_fig=[5, 3]):
     # ------------------------ Transpose data if it has more rows than columns ---------------------------
-    if (data.ndim == 2 and data.shape[0] < data.shape[1]) or (data.ndim == 3 and data.shape[0] < data.shape[2]):
-        data = data.T
-        
-    if (data_filtered.ndim == 2 and data_filtered.shape[0] < data_filtered.shape[1]) or (data_filtered.ndim == 3 and data_filtered.shape[0] < data_filtered.shape[2]):
-        data_filtered = data_filtered.T
-
+    data = data.T if data.ndim > 1 and data.shape[0] < data.shape[-1] else data
+    data_filtered = data_filtered.T if data_filtered.ndim > 1 and data_filtered.shape[0] < data_filtered.shape[-1] else data_filtered
+    
     trial = max(0, trial - 1)
     channel= max(0, channel - 1)
 
