@@ -1,6 +1,6 @@
 import numpy as np
 from scipy import signal
-
+import pandas as pd 
 # ================================================ Filtering =============================================================  
 # Function to apply digital filtering to data
 def filtering(data, f_low, f_high, order, fs, notch_freq, quality_factor, filter_active="on", notch_filter="on", 
@@ -11,8 +11,7 @@ def filtering(data, f_low, f_high, order, fs, notch_freq, quality_factor, filter
     
     filtered_data = data.copy()           # Make a copy of the input data
     # -------------------------- Convert data to ndarray if it's not already -----------------------------
-    if type(filtered_data).__name__ != 'ndarray': 
-        filtered_data = np.array(filtered_data)
+    filtered_data = np.array(filtered_data) if not isinstance(filtered_data, np.ndarray) else filtered_data
     # ------------------------ Transpose data if it has more rows than columns ---------------------------
     filtered_data = filtered_data.T if filtered_data.ndim > 1 and filtered_data.shape[0] > filtered_data.shape[-1] else filtered_data
     # --------------------- Design Butterworth filter based on the specified type ------------------------
@@ -45,3 +44,6 @@ def filtering(data, f_low, f_high, order, fs, notch_freq, quality_factor, filter
     filtered_data = filtered_data.T if filtered_data.ndim > 1 and filtered_data.shape[0] < filtered_data.shape[-1] else filtered_data
 
     return filtered_data
+
+#  if type(filtered_data).__name__ != 'ndarray': 
+#         filtered_data = np.array(filtered_data)

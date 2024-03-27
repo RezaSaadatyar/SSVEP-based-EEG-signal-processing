@@ -20,8 +20,8 @@ def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, 
 
     if display_figure == "on":  # Check if the display_figure parameter is set to "on"
         
-        if type(data).__name__ != 'ndarray': # Convert data to ndarray if it's not already
-            data = np.array(data)
+        # -------------------------- Convert data to ndarray if it's not already -----------------------------
+        data = np.array(data) if not isinstance(data, np.ndarray) else data
         
         # Transpose the data if it has more than one dimension and has fewer rows than columns
         data = data.T if data.ndim > 1 and data.shape[0] < data.shape[-1] else data

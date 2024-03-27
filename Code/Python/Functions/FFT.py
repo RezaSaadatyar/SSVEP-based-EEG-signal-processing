@@ -2,57 +2,58 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # ==================================================== fft ===============================================================
-def fft_analysis(data, data_filtered, fs, channel=0, trial=0, title='FFT Analysis', size_fig=[5, 3]):
+def fft_analysis(data, filtered_data, fs, channel=0, trial=0, title='FFT Analysis', size_fig=[5, 3]):
     
     """
     Perform FFT analysis on given data and its filtered counterpart.
     
     Parameters:
     - data: Numpy array containing the raw signal data.
-    - data_filtered: Numpy array containing the filtered signal data.
+    - filtered_data: Numpy array containing the filtered signal data.
     - fs: Sampling frequency.
     - channel: Channel number to analyze (default: 0).
     - trial: Trial number to analyze (default: 0).
     - title: Plot title (default: 'FFT Analysis').
     - size_fig: Figure size (default: [5, 3]).
     """
-    
     # Adjust for Python's 0-indexing
     trial, channel = max(0, trial - 1), max(0, channel - 1)
-    
+     # -------------------------- Convert data to ndarray if it's not already -----------------------------
+    data = np.array(data) if not isinstance(data, np.ndarray) else data
+    filtered_data = np.array(filtered_data) if not isinstance(filtered_data, np.ndarray) else filtered_data
     # Ensure data is in correct shape
-    data, data_filtered = [x.T if x.ndim > 1 and x.shape[0] < x.shape[-1] else x for x in [data, data_filtered]]
+    data, filtered_data = [x.T if x.ndim > 1 and x.shape[0] < x.shape[-1] else x for x in [data, filtered_data]]
     
     # Extract signal
-    signal, signal_filtered = extract_signal(data, data_filtered, channel, trial)
+    signal, filtered_signal = extract_signal(data, filtered_data, channel, trial)
     
     # Perform FFT
-    fft_results = perform_fft(signal, signal_filtered, fs)
+    fft_results = perform_fft(signal, filtered_signal, fs)
     
     # Plotting
     plot_fft(*fft_results, fs, title, size_fig)
 
-def extract_signal(data, data_filtered, channel, trial):
+def extract_signal(data, filtered_data, channel, trial):
     if data.ndim == 3:
-        return data[:, channel, trial], data_filtered[:, channel, trial]
+        return data[:, channel, trial], filtered_data[:, channel, trial]
     elif data.ndim == 2:
-        return data[:, channel], data_filtered[:, channel]
-    return data, data_filtered
+        return data[:, channel], filtered_data[:, channel]
+    return data, filtered_data
 
-def perform_fft(signal, signal_filtered, fs):
+def perform_fft(signal, filtered_signal, fs):
     x_fft = np.fft.rfft(signal)
-    x_filter_fft = np.fft.rfft(signal_filtered)
+    x_filter_fft = np.fft.rfft(filtered_signal)
     f = np.linspace(0, fs / 2, len(x_fft))
-    return signal, signal_filtered, x_fft, x_filter_fft, f
+    return signal, filtered_signal, x_fft, x_filter_fft, f
 
-def plot_fft(signal, signal_filtered, x_fft, x_filter_fft, f, fs, title, size_fig):
+def plot_fft(signal, filtered_signal, x_fft, x_filter_fft, f, fs, title, size_fig):
     time = np.linspace(0, len(signal) / fs, num=len(signal))
     
     _, axs = plt.subplots(nrows=2, sharex="row", figsize=size_fig)
     
     # Time-domain plots
     axs[0].plot(time, signal, label="Raw Signal")
-    axs[0].plot(time, signal_filtered, label="Filtered Signal")
+    axs[0].plot(time, filtered_signal, label="Filtered Signal")
     axs[0].set_ylabel('Amplitude', fontsize=10)
     axs[0].set_title(title, fontsize=10)
     axs[0].autoscale(enable=True, axis="x",tight=True)  # Auto-scale x-axis and set y-axis limits
