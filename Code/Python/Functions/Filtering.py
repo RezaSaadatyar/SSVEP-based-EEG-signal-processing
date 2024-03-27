@@ -8,11 +8,13 @@ def filtering(data, f_low, f_high, order, fs, notch_freq, quality_factor, filter
     # ------------------------------------ Normalize frequency values ------------------------------------
     f_low = f_low / (fs / 2)     
     f_high = f_high / (fs / 2)
+    
+    filtered_data = data.copy()           # Make a copy of the input data
     # -------------------------- Convert data to ndarray if it's not already -----------------------------
-    if type(data).__name__ != 'ndarray': 
-        data = np.array(data)
+    if type(filtered_data).__name__ != 'ndarray': 
+        filtered_data = np.array(filtered_data)
     # ------------------------ Transpose data if it has more rows than columns ---------------------------
-    data = data.T if data.ndim > 1 and data.shape[0] > data.shape[-1] else data
+    filtered_data = filtered_data.T if filtered_data.ndim > 1 and filtered_data.shape[0] > filtered_data.shape[-1] else filtered_data
     # --------------------- Design Butterworth filter based on the specified type ------------------------
     if type_filter == "low":     
         b, a = signal.butter(order, f_low, btype='low')
@@ -27,19 +29,19 @@ def filtering(data, f_low, f_high, order, fs, notch_freq, quality_factor, filter
     b_notch, a_notch = signal.iirnotch(notch_freq, quality_factor, fs)
     # ------------------------------------------- Notch filter -------------------------------------------
     if notch_filter == "on":
-        if data.ndim == 3:
-            for i in range(data.shape[0]):
-                data[i, :, :] = signal.filtfilt(b_notch, a_notch, data[i, :, :])
-        elif data.ndim < 3:
-            data = signal.filtfilt(b_notch, a_notch, data)
+        if filtered_data.ndim == 3:
+            for i in range(filtered_data.shape[0]):
+                filtered_data[i, :, :] = signal.filtfilt(b_notch, a_notch, filtered_data[i, :, :])
+        elif filtered_data.ndim < 3:
+            filtered_data = signal.filtfilt(b_notch, a_notch, filtered_data)
      # -------------- Apply the digital filter using filtfilt to avoid phase distortion ------------------
     if filter_active == "on":
-        if data.ndim == 3:
-            for i in range(data.shape[0]):
-                data[i, :, :] = signal.filtfilt(b, a, data[i, :, :])
-        elif data.ndim < 3:
-            data = signal.filtfilt(b, a, data)
+        if filtered_data.ndim == 3:
+            for i in range(filtered_data.shape[0]):
+                filtered_data[i, :, :] = signal.filtfilt(b, a, filtered_data[i, :, :])
+        elif filtered_data.ndim < 3:
+            filtered_data = signal.filtfilt(b, a, filtered_data)
     # ------------------------ Transpose data if it has more columns than rows ---------------------------
-    data = data.T if data.ndim > 1 and data.shape[0] < data.shape[-1] else data
+    filtered_data = filtered_data.T if filtered_data.ndim > 1 and filtered_data.shape[0] < filtered_data.shape[-1] else filtered_data
 
-    return data
+    return filtered_data
