@@ -1,6 +1,6 @@
 import numpy as np
 from scipy import signal
-import pandas as pd 
+
 # ================================================ Filtering =============================================================  
 # Function to apply digital filtering to data
 def filtering(data, f_low, f_high, order, fs, notch_freq, quality_factor, filter_active="on", notch_filter="on",
