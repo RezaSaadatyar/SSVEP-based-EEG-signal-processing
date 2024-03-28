@@ -3,7 +3,7 @@ from scipy import signal
 import pandas as pd 
 # ================================================ Filtering =============================================================  
 # Function to apply digital filtering to data
-def filtering(data, f_low, f_high, order, fs, notch_freq, quality_factor, filter_active="on", notch_filter="on", 
+def filtering(data, f_low, f_high, order, fs, notch_freq, quality_factor, filter_active="on", notch_filter="on",
               type_filter='bandpass'): 
     # ------------------------------------ Normalize frequency values ------------------------------------
     f_low = f_low / (fs / 2)     
@@ -31,14 +31,14 @@ def filtering(data, f_low, f_high, order, fs, notch_freq, quality_factor, filter
         if filtered_data.ndim == 3:
             for i in range(filtered_data.shape[0]):
                 filtered_data[i, :, :] = signal.filtfilt(b_notch, a_notch, filtered_data[i, :, :])
-        elif filtered_data.ndim < 3:
+        else:
             filtered_data = signal.filtfilt(b_notch, a_notch, filtered_data)
      # -------------- Apply the digital filter using filtfilt to avoid phase distortion ------------------
     if filter_active == "on":
         if filtered_data.ndim == 3:
             for i in range(filtered_data.shape[0]):
                 filtered_data[i, :, :] = signal.filtfilt(b, a, filtered_data[i, :, :])
-        elif filtered_data.ndim < 3:
+        else:
             filtered_data = signal.filtfilt(b, a, filtered_data)
     # ------------------------ Transpose data if it has more columns than rows ---------------------------
     filtered_data = filtered_data.T if filtered_data.ndim > 1 and filtered_data.shape[0] < filtered_data.shape[-1] else filtered_data
