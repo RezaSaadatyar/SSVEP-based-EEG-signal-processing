@@ -31,16 +31,16 @@ for i = 1:length(filename) % Loop through each selected filename, First loop ---
             % Append data to existing Data variables if they exist
             if exist('data1', 'var') && (i > 1) && (j == 1)
                 data1(:, :, size(data1, 3) + 1) = signal(time_start_trial(numb_trials(k)):time_start_trial(numb_trials(k)) + duration_trial - 1,:);
-            elseif exist('data2','var') && (i > 1) && (j == 2)
+            elseif exist('data2', 'var') && (i > 1) && (j == 2)
                 data2(:, :, size(data2, 3) + 1) = signal(time_start_trial(numb_trials(k)):time_start_trial(numb_trials(k)) + duration_trial - 1,:);
-            elseif exist('data3','var') && (i > 1) && (j == 3)
+            elseif exist('data3', 'var') && (i > 1) && (j == 3)
                 data3(:, :, size(data3, 3) + 1) = signal(time_start_trial(numb_trials(k)):time_start_trial(numb_trials(k)) + duration_trial - 1,:);
             else
                 data(:, :, k) = signal(time_start_trial(numb_trials(k)):time_start_trial(numb_trials(k)) + duration_trial - 1,:);
             end
         end
         % Create new Data variables if they don't exist
-        if exist('data1','var') == 0 || exist('data2','var') == 0 || exist('data3','var') == 0
+        if exist('data1', 'var') == 0 || exist('data2', 'var') == 0 || exist('data3', 'var') == 0
             eval(['data' num2str(j)  ' = data;'])
         end
     end
