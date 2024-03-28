@@ -7,19 +7,23 @@ def car(data):
     Computes the common average reference (CAR) for EEG signals.
 
     Parameters:
-    data (np.array): A 2D numpy array where each row represents the potential between an electrode and the reference.
+    data (np.array): A numpy array where each row represents the potential between an electrode and the reference.
 
     Returns:
     np.array: The CAR for each electrode.
     """
+    # -------------------------- Convert data to ndarray if it's not already -----------------------------
+    data = np.array(data) if not isinstance(data, np.ndarray) else data
     
-    if type(data).__name__ != 'ndarray': # Convert data to ndarray if it's not already
-        data = np.array(data)
-    if data.ndim > 1 and data.shape[0] < data.shape[1]: # Transpose data if it has more columns than rows
-        data = data.T
+    data_car = data.copy()
+    
+    # Transpose the data if it has more than one dimension and has fewer rows than columns
+    data_car = data_car.T if data_car.ndim > 1 and data_car.shape[0] < data_car.shape[-1] else data_car
+    
+    # Calculate the average potential across all electrodes for each trial
+    average_potential = np.mean(data_car, axis=1, keepdims=True) # Vectorized Common Average Referencing (CAR)
+    
+    # Subtract the average potential from each electrode's potential
+    data_car -= average_potential
 
-    average_potential = np.mean(data, axis=1) # Calculate the average potential across all electrodes                                             
- 
-    data_car = data - average_potential.reshape(-1, 1) # Subtract the average potential from each electrode's potential
-    
     return data_car
