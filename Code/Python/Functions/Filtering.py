@@ -4,7 +4,7 @@ from scipy import signal
 # ================================================ Filtering =============================================================  
 # Function to apply digital filtering to data
 def filtering(data, f_low, f_high, order, fs, notch_freq, quality_factor, filter_active="on", notch_filter="on",
-              type_filter='bandpass'): 
+              type_filter='bandpass'):
     # ------------------------------------ Normalize frequency values ------------------------------------
     f_low = f_low / (fs / 2)     
     f_high = f_high / (fs / 2)
