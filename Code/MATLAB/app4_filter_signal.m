@@ -9,10 +9,9 @@ addpath(genpath(cd)) % Add the current directory and its subfolders to the MATLA
 % Let the user select a mat file containing EEG data
 filename = uigetfile({'*.mat','mat file';'*.*','All Files'},'File Selection','multiselect','off');
 data = load(filename); % Load the data from the selected mat file
-
 x = data.data1;  % Extract EEG data for the first trial (number samples, number channel, number trials)
-fs = 256;
 %% ------------------ Step 2: Filtering all trials --------------------------------
+fs = 256;       % Define sampling frequency
 f_low = 0.05;
 f_high = 100;
 order = 4;  
