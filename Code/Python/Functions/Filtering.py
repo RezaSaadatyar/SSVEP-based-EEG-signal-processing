@@ -5,6 +5,24 @@ from scipy import signal
 # Function to apply digital filtering to data
 def filtering(data, f_low, f_high, order, fs, notch_freq, quality_factor, filter_active="on", notch_filter="on",
               type_filter='bandpass'):
+    """
+    FILTERING applies digital filtering to data.
+
+    Inputs:
+    - data: Input data to be filtered.
+    - f_low: Low cutoff frequency.
+    - f_high: High cutoff frequency.
+    - order: Filter order.
+    - fs: Sampling frequency.
+    - notch_freq: Frequency to be notched out.
+    - quality_factor: Quality factor for the notch filter.
+    - filter_active: Activate filtering ('on' or 'off').
+    - notch_filter: Activate notch filtering ('on' or 'off').
+    - type_filter: Type of filter ('low', 'high', 'bandpass', 'stop').
+
+    Output:
+    - filtered_data: Filtered data.
+    """
     # ------------------------------------ Normalize frequency values ------------------------------------
     f_low = f_low / (fs / 2)     
     f_high = f_high / (fs / 2)
