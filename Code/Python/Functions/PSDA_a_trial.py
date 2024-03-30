@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# ==============================================================================================================
 def psda_a_trial(data, fs, num_sample_neigh, f_stim, num_harmonic, title, fig_size=[4, 3]):
     
     """
@@ -38,12 +37,12 @@ def psda_a_trial(data, fs, num_sample_neigh, f_stim, num_harmonic, title, fig_si
     for i, val in enumerate(f_stim): # Loop over each stimulation frequency
         for h in range(1, num_harmonic + 1): # Loop over each harmonic
             # Find indices around the stimulation frequency and its neighborhood
-            indxfk = np.where((f >= h * val - 0.2) & (f <= h * val + 0.2))[0]
-            ind = np.where((f >= h * val - step) & (f <= h * val + step))[0]
+            ind_fk = np.where((f >= h * val - 0.2) & (f <= h * val + 0.2))[0]
+            ind_h = np.where((f >= h * val - step) & (f <= h * val + step))[0]
             
             # Compute PSDA and plot PSD in the neighborhood
-            psda[i, h-1] = 10 * np.log10((num_sample_neigh * max(psd[indxfk])) / (np.sum(psd[ind]) - max(psd[indxfk])))
-            plt.plot(f[ind], psd[ind], linewidth=2.5, label=f"F_stim{i + 1}.H{h}:{val * h}")
+            psda[i, h-1] = 10 * np.log10((num_sample_neigh * max(psd[ind_fk])) / (np.sum(psd[ind_h]) - max(psd[ind_fk])))
+            plt.plot(f[ind_h], psd[ind_h], linewidth=2.5, label=f"F_stim{i + 1}.H{h}:{val * h}")
             
     # Find the maximum PSDA value and its corresponding label
     max_freq = np.max(np.max(psda, axis=1))
