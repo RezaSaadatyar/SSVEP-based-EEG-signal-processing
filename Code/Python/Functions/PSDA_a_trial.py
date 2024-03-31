@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+# ============================================== PSDA a trial =====================================================
 def psda_a_trial(data, fs, num_sample_neigh, f_stim, num_harmonic, title, fig_size=[4, 3]):
     
     """
