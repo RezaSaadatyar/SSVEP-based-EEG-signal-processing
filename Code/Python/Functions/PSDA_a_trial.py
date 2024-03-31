@@ -5,19 +5,40 @@ def psda_a_trial(data, fs, num_sample_neigh, f_stim, num_harmonic, title, fig_si
     
     """
     PSDA_A_TRIAL calculates the Power Spectral Density Amplitude (PSDA) for a single trial.
-
     Inputs:
       - fs: Sampling frequency of the signal.
       - data: EEG signal data for a single trial.
       - num_sample_neigh: Number of samples in the neighborhood of each frequency stimulation.
       - f_stim: Array of frequencies for stimulation.
       - num_harmonic: Number of harmonic frequencies for each stimulation frequency.
-
     Outputs:
       - max_freq: Maximum frequency found using PSDA.
       - label: Index of the stimulation frequency with maximum PSDA.
+    ==================================== Flowchart for the plot_data function =====================================
+    Start
+    1. Convert data to ndarray if it's not already.
+    2. Transpose the data if it has more than one dimension and has fewer rows than columns.
+    3. Generate the frequency axis up to the Nyquist frequency.
+    4. Calculate the frequency step size for each neighborhood.
+    5. Initialize an array to store PSDA values for each stimulation frequency and harmonic.
+    6. Compute FFT of the data along the specified axis.
+    7. Take the one-sided spectrum of the FFT result.
+    8. Compute the power spectral density (PSD) of the FFT result.
+    9. Create a new figure with the specified size.
+    10. Plot the PSD against frequency, excluding the DC component.
+    11. Loop over each stimulation frequency:
+        a. Loop over each harmonic:
+            i. Find indices around the stimulation frequency and its neighborhood.
+            ii. Compute PSDA and plot PSD in the neighborhood.
+    12. Find the maximum PSDA value and its corresponding label.
+    13. Set plot title and axis labels.
+    14. Auto-scale x-axis.
+    15. Add legend to the plot.
+    16. Return the maximum PSDA value and its corresponding label.
+    End
+    ===============================================================================================================
     """
-    # -------------------------- Convert data to ndarray if it's not already -----------------------------
+    # ----------------------------- Convert data to ndarray if it's not already -----------------------------------
     data = np.array(data) if not isinstance(data, np.ndarray) else data
 
     # Transpose the data if it has more than one dimension and has fewer rows than columns
@@ -25,7 +46,8 @@ def psda_a_trial(data, fs, num_sample_neigh, f_stim, num_harmonic, title, fig_si
     
     f = np.linspace(0, fs/2, int(np.floor(data.shape[0]/2)) + 1) # Generate frequency axis up to Nyquist frequency
     step = fs * (num_sample_neigh/2) / data.shape[0] # Calculate the frequency step size for each neighborhood
-    psda = np.zeros((len(f_stim), num_harmonic)) # Initialize array to store PSDA values for each stimulation frequency and harmonic
+    # Initialize array to store PSDA values for each stimulation frequency and harmonic
+    psda = np.zeros((len(f_stim), num_harmonic)) 
 
     x_fft = np.fft.fft(data, axis=0) # Compute FFT of the data along the specified axis
     x_fft = x_fft[:int(np.floor(data.shape[0]/2)) + 1] # Take one-sided spectrum
