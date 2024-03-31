@@ -20,32 +20,32 @@ def filtering(data, f_low, f_high, order, fs, notch_freq, quality_factor, filter
     - type_filter: Type of filter ('low', 'high', 'bandpass', 'stop').
     Output:
     - filtered_data: Filtered data.
-    %% ================================ Flowchart for the filtering function ======================================
-    % Start
-    % Inputs: Input data (data), low cutoff frequency (f_low), high cutoff frequency (f_high), filter order (order),
-    %         sampling frequency (fs), notch frequency (notch_freq), quality factor (quality_factor),
-    %         filter_active (filtering activation), notch_filter (notch filtering activation), type_filter (type of 
+    ================================== Flowchart for the filtering function =======================================
+    Start
+    Inputs: Input data (data), low cutoff frequency (f_low), high cutoff frequency (f_high), filter order (order),
+            sampling frequency (fs), notch frequency (notch_freq), quality factor (quality_factor),
+             filter_active (filtering activation), notch_filter (notch filtering activation), type_filter (type of 
               filter)
-    % 1. Normalize frequency values (f_low, f_high)
-    % 2. Check the dimensions of the input data:
-    %    a. If it's a 3D matrix and has more rows than columns:
-    %       - Transpose the data using permute to make channels as slices
-    %    b. If it has more columns than rows:
-    %       - Transpose the data to make channels as rows
-    % 3. Design Butterworth filter based on the specified type:
-    %    - Lowpass filter: Design Butterworth filter with 'low' option
-    %    - Highpass filter: Design Butterworth filter with 'high' option
-    %    - Bandpass filter: Design Butterworth filter with 'bandpass' option
-    %    - Bandstop filter: Design Butterworth filter with 'stop' option
-    % 4. Design a notch filter:
-    %    - Use iirnotch to design a notch filter based on notch frequency and quality factor
-    % 5. Notch filter:
-    %    - Apply notch filtering if notch_filter is 'on'
-    % 6. Apply the digital filter using filtfilt:
-    %    - Apply filtering if filter_active is 'on'
-    % 7. Output the filtered data (filtered_data)
-    % End
-    %% ============================================================================================================
+     1. Normalize frequency values (f_low, f_high)
+     2. Check the dimensions of the input data:
+        a. If it's a 3D matrix and has more rows than columns:
+           - Transpose the data using permute to make channels as slices
+        b. If it has more columns than rows:
+           - Transpose the data to make channels as rows
+     3. Design Butterworth filter based on the specified type:
+        - Lowpass filter: Design Butterworth filter with 'low' option
+        - Highpass filter: Design Butterworth filter with 'high' option
+        - Bandpass filter: Design Butterworth filter with 'bandpass' option
+        - Bandstop filter: Design Butterworth filter with 'stop' option
+     4. Design a notch filter:
+        - Use iirnotch to design a notch filter based on notch frequency and quality factor
+     5. Notch filter:
+        - Apply notch filtering if notch_filter is 'on'
+     6. Apply the digital filter using filtfilt:
+        - Apply filtering if filter_active is 'on'
+     7. Output the filtered data (filtered_data)
+     End
+    ===============================================================================================================
     """
     # ------------------------------------------ Normalize frequency values ---------------------------------------
     f_low = f_low / (fs / 2)
