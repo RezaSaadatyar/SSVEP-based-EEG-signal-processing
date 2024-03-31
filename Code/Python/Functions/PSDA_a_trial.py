@@ -15,7 +15,7 @@ def psda_a_trial(data, fs, num_sample_neigh, f_stim, num_harmonic, title, fig_si
     Outputs:
       - max_freq: Maximum frequency found using PSDA.
       - label: Index of the stimulation frequency with maximum PSDA.
-    ==================================== Flowchart for the plot_data function =====================================
+    =================================== Flowchart for the psda a trial function ===================================
     Start
     1. Convert data to ndarray if it's not already.
     2. Transpose the data if it has more than one dimension and has fewer rows than columns.
