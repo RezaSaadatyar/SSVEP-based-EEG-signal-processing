@@ -4,7 +4,7 @@ import os
 # Function to construct the path to a data folder and list files within it
 def data_path(folder_path, data_format, depth=0):
     """
-    ================================== Flowchart for the fft_analysis function ====================================
+    =================================== Flowchart for the data path function ======================================
     Start
     1. Get the contents of the folder and sort them.
     2. Initialize lists to store files, folders, and files' paths.
