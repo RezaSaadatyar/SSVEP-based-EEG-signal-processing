@@ -16,11 +16,28 @@ def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, 
     - size_fig: Size of the figure.
     - title: Title of the plot.
     - display_figure: Whether to display the figure.
+    ==================================== Flowchart for the plot_data function =====================================
+    Start
+    1. Check if the display_figure parameter is set to "on".
+    2. Convert data to ndarray if it's not already.
+    3. Transpose the data if it has more than one dimension and has fewer rows than columns.
+    4. Extract the specified range of data based on first_point and last_point.
+    5. Calculate the standard deviation of each channel.
+    6. If the array is larger than 100 elements, exclude the first and last elements before taking the mean.
+    7. Create subplots for the figure.
+    8. Calculate the vertical offset based on channel names and standard deviation.
+    9. If the sampling frequency is provided, calculate the time axis.
+    10. Plot the data with the vertical offset.
+    11. Customize plot appearance: set labels, grid, ticks, tick labels, title, and line colors.
+    12. Auto-scale x-axis and set y-axis limits.
+    13. Color lines and labels to match.
+    14. Display the plot if required.
+    End
+    ===============================================================================================================
     """
-
     if display_figure == "on":  # Check if the display_figure parameter is set to "on"
         
-        # -------------------------- Convert data to ndarray if it's not already -----------------------------
+        # ----------------------------- Convert data to ndarray if it's not already -------------------------------
         data = np.array(data) if not isinstance(data, np.ndarray) else data
         
         # Transpose the data if it has more than one dimension and has fewer rows than columns
