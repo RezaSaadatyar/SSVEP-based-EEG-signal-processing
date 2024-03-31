@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# ================================================= Plot data ============================================================
+# ================================================= Plot data =====================================================
 # Function to plot EEG data
 def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, val_ylim='', size_fig=(7,5), title='', 
               display_figure="off"):
