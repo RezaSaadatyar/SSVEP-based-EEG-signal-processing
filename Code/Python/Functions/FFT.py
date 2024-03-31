@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# ==================================================== fft ===============================================================
+# ==================================================== fft ========================================================
 def fft_analysis(data, filtered_data, fs, channel=0, trial=0, title='FFT Analysis', size_fig=[5, 3]):
     
     """
@@ -30,7 +30,7 @@ def fft_analysis(data, filtered_data, fs, channel=0, trial=0, title='FFT Analysi
     """
     # Adjust for Python's 0-indexing
     trial, channel = max(0, trial - 1), max(0, channel - 1)
-     # -------------------------- Convert data to ndarray if it's not already -----------------------------
+     # ------------------------------ Convert data to ndarray if it's not already ---------------------------------
     data = np.array(data) if not isinstance(data, np.ndarray) else data
     filtered_data = np.array(filtered_data) if not isinstance(filtered_data, np.ndarray) else filtered_data
     # Ensure data is in correct shape
