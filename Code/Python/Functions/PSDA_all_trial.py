@@ -30,6 +30,7 @@ def psda_all_trial(data, f_stim, num_sample_neigh, fs, num_harmonic):
     c. Store the maximum PSDA value for the current stimulation frequency in psda
     Output: psda (Array containing the maximum PSDA values for each stimulation frequency)
     End
+    ===============================================================================================================
     """
     # ---------------------------- Convert data to ndarray if it's not already ------------------------------------
     data = np.array(data) if not isinstance(data, np.ndarray) else data
