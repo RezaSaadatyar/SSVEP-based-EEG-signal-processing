@@ -13,7 +13,7 @@ filename = uigetfile({'*.mat', 'mat file'; '*.*', 'All Files'}, 'File Selection'
 data = load(filename); % Load the data from the selected mat file
 % Extract EEG data (number samples, number channel, number trials)
 data_total = cat(3, data.data1, data.data2, data.data3);
-label = [ones(1, size(data.data1, 3)), 2*ones(1, size(data.data2, 3)), 3*ones(1, ...
+labels = [ones(1, size(data.data1, 3)), 2*ones(1, size(data.data2, 3)), 3*ones(1, ...
     size(data.data3, 3))];
 %% ----------------------- Step 2: Filtering all trials -------------------------------
 fs = 256;              % Sampling frequency
@@ -41,4 +41,4 @@ for i = 1:size(data_total, 3)
     psda = psda_all_trial(x(:, num_channel), f_stim, num_sample_neigh, fs, num_harmonic);
     [~, label_predic(i)] = max(psda);
 end
-Accuracy = sum(label - label_predic == 0) / length(label_predic) * 100
+Accuracy = sum(labels - label_predic == 0) / length(label_predic) * 100
