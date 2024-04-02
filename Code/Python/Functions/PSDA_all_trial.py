@@ -1,6 +1,6 @@
 import numpy as np
 
-# ================================================== psda_all_trial ===============================================
+# ================================================== psda_all_trial ================================================
 def psda_all_trial(data, f_stim, num_sample_neigh, fs, num_harmonic):
     """
     Calculate the Power Spectral Density Amplitude (PSDA) for all trials.
@@ -12,7 +12,7 @@ def psda_all_trial(data, f_stim, num_sample_neigh, fs, num_harmonic):
         - num_harmonic: Number of harmonics for each stimulation frequency.
     Output:
         - psda: Array containing the maximum PSDA values for each stimulation frequency.
-    ================================== Flowchart for the psda_all_trial function ==================================
+    ================================== Flowchart for the psda_all_trial function ===================================
     Start
     1. Convert data to ndarray if it's not already
     2. Transpose the data if it has more columns than rows
@@ -30,9 +30,9 @@ def psda_all_trial(data, f_stim, num_sample_neigh, fs, num_harmonic):
     c. Store the maximum PSDA value for the current stimulation frequency in psda
     Output: psda (Array containing the maximum PSDA values for each stimulation frequency)
     End
-    ===============================================================================================================
+    ================================================================================================================
     """
-    # ---------------------------- Convert data to ndarray if it's not already ------------------------------------
+    # ---------------------------- Convert data to ndarray if it's not already -------------------------------------
     data = np.array(data) if not isinstance(data, np.ndarray) else data
 
     # Transpose the data if it has more than one dimension and has fewer rows than columns

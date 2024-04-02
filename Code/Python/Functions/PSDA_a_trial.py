@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# ============================================== PSDA a trial =====================================================
+# =============================================== PSDA a trial =====================================================
 def psda_a_trial(data, fs, num_sample_neigh, f_stim, num_harmonic, title, fig_size=[4, 3]):
     
     """
@@ -15,7 +15,7 @@ def psda_a_trial(data, fs, num_sample_neigh, f_stim, num_harmonic, title, fig_si
     Outputs:
       - max_freq: Maximum frequency found using PSDA.
       - label: Index of the stimulation frequency with maximum PSDA.
-    =================================== Flowchart for the psda a trial function ===================================
+    =================================== Flowchart for the psda a trial function ====================================
     Start
     1. Convert data to ndarray if it's not already.
     2. Transpose the data if it has more than one dimension and has fewer rows than columns.
@@ -37,9 +37,9 @@ def psda_a_trial(data, fs, num_sample_neigh, f_stim, num_harmonic, title, fig_si
     15. Add legend to the plot.
     16. Return the maximum PSDA value and its corresponding label.
     End
-    ===============================================================================================================
+    ================================================================================================================
     """
-    # ----------------------------- Convert data to ndarray if it's not already -----------------------------------
+    # ----------------------------- Convert data to ndarray if it's not already ------------------------------------
     data = np.array(data) if not isinstance(data, np.ndarray) else data
 
     # Transpose the data if it has more than one dimension and has fewer rows than columns

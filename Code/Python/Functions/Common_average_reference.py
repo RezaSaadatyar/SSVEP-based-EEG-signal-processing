@@ -1,6 +1,6 @@
 import numpy as np
 
-# ================================================ CAR Filter =====================================================
+# ================================================= CAR Filter =====================================================
 def car(data):
     
     """
@@ -9,7 +9,7 @@ def car(data):
     data (np.array): A numpy array where each row represents the potential between an electrode and the reference.
     Returns:
     np.array: The CAR for each electrode.
-    =================================== Flowchart for the car_filter function =====================================
+    ==================================== Flowchart for the car_filter function =====================================
     Start
     1. Convert data to a NumPy array if it's not already.
     2. Create a copy of the data array to store the Common Average Reference (CAR) values.
@@ -18,9 +18,9 @@ def car(data):
     5. Subtract the average potential from each electrode's potential to compute the CAR.
     6. Return the data with the CAR applied.
     End
-    ===============================================================================================================
+    ================================================================================================================
     """
-    # ----------------------------- Convert data to ndarray if it's not already -----------------------------------
+    # ------------------------------ Convert data to ndarray if it's not already -----------------------------------
     data = np.array(data) if not isinstance(data, np.ndarray) else data
     
     data_car = data.copy()
