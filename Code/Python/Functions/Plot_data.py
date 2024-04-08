@@ -1,10 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# ================================================== Plot data =====================================================
+# =============================================== Plot data ==================================================
 # Function to plot EEG data
-def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, val_ylim='', size_fig=(7,5), title='', 
-              display_figure="off"):
+def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, val_ylim='', size_fig=(7,5), 
+              title='', display_figure="off"):
     """
     Parameters:
     - data: EEG data to be plotted.
@@ -16,7 +16,7 @@ def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, 
     - size_fig: Size of the figure.
     - title: Title of the plot.
     - display_figure: Whether to display the figure.
-    ===================================== Flowchart for the plot_data function =====================================
+    ================================== Flowchart for the plot_data function ==================================
     Start
     1. Check if the display_figure parameter is set to "on".
     2. Convert data to ndarray if it's not already.
@@ -33,11 +33,11 @@ def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, 
     13. Color lines and labels to match.
     14. Display the plot if required.
     End
-    ================================================================================================================
+    ==========================================================================================================
     """
     if display_figure == "on":  # Check if the display_figure parameter is set to "on"
         
-        # ------------------------------ Convert data to ndarray if it's not already -------------------------------
+        # ------------------------- Convert data to ndarray if it's not already ------------------------------
         data = np.array(data) if not isinstance(data, np.ndarray) else data
         
         # Transpose the data if it has more than one dimension and has fewer rows than columns
