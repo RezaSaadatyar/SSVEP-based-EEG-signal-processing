@@ -1,6 +1,6 @@
 import numpy as np
 
-# ================================================== psda_analysis =================================================
+# ============================================== psda_analysis ===============================================
 def psda_analysis(data, f_stim, num_sample_neigh, fs, num_harmonic):
     """
     Calculate the Power Spectral Density Amplitude (PSDA) for all trials.
@@ -12,7 +12,7 @@ def psda_analysis(data, f_stim, num_sample_neigh, fs, num_harmonic):
         - num_harmonic: Number of harmonics for each stimulation frequency.
     Output:
         - psda: Array containing the maximum PSDA values for each stimulation frequency.
-    =================================== Flowchart for the psda_analysis function ===================================
+    =============================== Flowchart for the psda_analysis function =================================
     Start
     1. Convert data to ndarray if it's not already
     2. Transpose the data if it has more columns than rows
@@ -30,9 +30,9 @@ def psda_analysis(data, f_stim, num_sample_neigh, fs, num_harmonic):
     c. Store the maximum PSDA value for the current stimulation frequency in psda
     Output: psda (Array containing the maximum PSDA values for each stimulation frequency)
     End
-    ================================================================================================================
+    ==========================================================================================================
     """
-    # ---------------------------- Convert data to ndarray if it's not already -------------------------------------
+    # ------------------------ Convert data to ndarray if it's not already -----------------------------------
     data = np.array(data) if not isinstance(data, np.ndarray) else data
 
     # Transpose the data if it has more than one dimension and has fewer rows than columns
@@ -68,7 +68,8 @@ def psda_analysis(data, f_stim, num_sample_neigh, fs, num_harmonic):
                     # Compute PSDA and plot PSD in the neighborhood
                     ps[j, h-1] = 10 * np.log10((num_sample_neigh * max(psd[ind_fk])) / (np.sum(psd[ind_h]) -
                                                                                         max(psd[ind_fk])))
-            psda[i] = np.max(np.max(ps, axis=1))  # Store maximum PSDA value for the current stimulation frequency
+            # Store maximum PSDA value for the current stimulation frequency
+            psda[i] = np.max(np.max(ps, axis=1)) 
             
         predict_label[ind] = np.argmax(psda)
 
