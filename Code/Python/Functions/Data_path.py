@@ -1,6 +1,6 @@
 import os
 
-# ================================================== Data path =====================================================
+# ============================================== Data path ===================================================
 # Function to construct the path to a data folder and list files within it
 def data_path(folder_path, data_format, depth=0):
     """
@@ -8,7 +8,7 @@ def data_path(folder_path, data_format, depth=0):
     - folder_path: Path to the folder to search.
     - data_format: Desired format of the data files.
     - depth (optional): Current depth in the directory structure (default: 0).
-    ==================================== Flowchart for the data path function ======================================
+    ================================= Flowchart for the data path function ===================================
     Start
     1. Get the contents of the folder and sort them.
     2. Initialize lists to store files, folders, and files' paths.
@@ -25,7 +25,7 @@ def data_path(folder_path, data_format, depth=0):
     b. If it matches the data format, append its full path to the files_path list.
     5. Return the list of files with the specified data format, all files, and all folders.
     End
-    ================================================================================================================
+    ==========================================================================================================
     """
     contents = sorted(os.listdir(folder_path)) # Get the contents of the folder and sort them
     files = []             # Initialize lists to store files
