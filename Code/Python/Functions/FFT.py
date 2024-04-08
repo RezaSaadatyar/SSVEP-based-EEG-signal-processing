@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# ==================================================== fft =========================================================
-def fft_analysis(data, filtered_data, fs, channel=0, trial=0, title='FFT Analysis', size_fig=[5, 3])
+# ================================================= fft ======================================================
+def fft_analysis(data, filtered_data, fs, channel=0, trial=0, title='FFT Analysis', size_fig=[5, 3]):
     """
     Perform FFT analysis on given data and its filtered counterpart.
     Parameters:
@@ -13,7 +13,7 @@ def fft_analysis(data, filtered_data, fs, channel=0, trial=0, title='FFT Analysi
     - trial: Trial number to analyze (default: 0).
     - title: Plot title (default: 'FFT Analysis').
     - size_fig: Figure size (default: [5, 3]).
-    =================================== Flowchart for the fft_analysis function ====================================
+    ================================ Flowchart for the fft_analysis function =================================
     Start
     1. Adjust trial and channel indices for Python's 0-indexing
     2. Convert data to ndarray if it's not already
@@ -25,11 +25,11 @@ def fft_analysis(data, filtered_data, fs, channel=0, trial=0, title='FFT Analysi
     8. Plot frequency-domain FFT results (raw and filtered) on the second subplot
     9. Adjust subplot properties and labels
     End
-    ================================================================================================================
+    ==========================================================================================================
     """
     # Adjust for Python's 0-indexing
     trial, channel = max(0, trial - 1), max(0, channel - 1)
-     # ------------------------------- Convert data to ndarray if it's not already ---------------------------------
+     # ----------------------------- Convert data to ndarray if it's not already -----------------------------
     data = np.array(data) if not isinstance(data, np.ndarray) else data
     filtered_data = np.array(filtered_data) if not isinstance(filtered_data, np.ndarray) else filtered_data
     # Ensure data is in correct shape
