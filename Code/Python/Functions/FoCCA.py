@@ -1,6 +1,6 @@
 import numpy as np
 
-# ==================================== Fusing Canonical Coefficients (FoCCA) =======================================
+# ================================= Fusing Canonical Coefficients (FoCCA) ====================================
 def focca_analysis(data, labels, fs, f_stim, num_channel, num_harmonic, a, b):
     """
     Parameters:
@@ -12,7 +12,7 @@ def focca_analysis(data, labels, fs, f_stim, num_channel, num_harmonic, a, b):
     - num_harmonic: Number of harmonic frequencies for each stimulation frequency.
     - a: Array of parameter values for scaling the coefficients.
     - b: Array of parameter values for shifting the coefficients.
-    ====================================== Flowchart for the focca function ========================================
+    ==================================== Flowchart for the focca function ====================================
     Start
     1. Convert data to a NumPy array if it's not already.
     2. Transpose the data if it has more than one dimension and fewer rows than columns.
@@ -23,7 +23,8 @@ def focca_analysis(data, labels, fs, f_stim, num_channel, num_harmonic, a, b):
     6. Initialize an array predict_label to store predicted labels for each trial.
     7. Create an array k containing values from 1 to the minimum of num_channel and num_harmonic * 2.
     8. Initialize an array coeff to store computed coefficients.
-    9. Initialize an empty list accuracy to store the accuracy of predictions for different parameter combinations.
+    9. Initialize an empty list accuracy to store the accuracy of predictions for different parameter 
+    combinations.
     10. Loop over each pair of parameter values (val_a, val_b) in the arrays a and b:
         a. Loop over each trial in the data:
             i. Loop over each stimulation frequency:
@@ -34,14 +35,14 @@ def focca_analysis(data, labels, fs, f_stim, num_channel, num_harmonic, a, b):
         c. Print the accuracy for the current parameter combination.
     11. Return the list of accuracies.
     End
-    ================================================================================================================
+    ==========================================================================================================
     """
-    # ----------------------------- Convert data to ndarray if it's not already ------------------------------------
+    # --------------------------- Convert data to ndarray if it's not already --------------------------------
     data = np.array(data) if not isinstance(data, np.ndarray) else data
 
     # Transpose the data if it has more than one dimension and has fewer rows than columns
     data = data.T if data.ndim > 1 and data.shape[0] < data.shape[-1] else data
-    # ------------------------------------------ Reference signal --------------------------------------------------
+    # ---------------------------------------- Reference signal ----------------------------------------------
     data_ref = []
     time = np.linspace(0, data.shape[0] / fs, data.shape[0])  # Time vector
     
@@ -54,7 +55,7 @@ def focca_analysis(data, labels, fs, f_stim, num_channel, num_harmonic, a, b):
             signal_ref.append(np.cos(2 * np.pi * j * val * time))
 
         data_ref.append(np.stack(signal_ref, axis=1))  # Store data_ref in the data_ref_list
-    # ------------------------------------------ Correlation Analysis ----------------------------------------------
+    # --------------------------------------- Correlation Analysis -------------------------------------------
     predict_label = np.zeros(data.shape[-1])  # Initialize label_predic array with zeros
     k = np.arange(1, min(len(num_channel), num_harmonic * 2) + 1, dtype=float) # Create the array k
     coeff = np.zeros(len(f_stim))
@@ -84,25 +85,27 @@ def cca_analysis(data, data_ref):
     Parameters:
     - data: EEG data or one set of variables.
     - data_ref: Reference data or another set of variables.
-    ======================================= Flowchart for the cca function =========================================
+    =================================== Flowchart for the cca function =======================================
     Start
     1. Convert data and data_ref to NumPy arrays if they are not already.
     2. Transpose data and data_ref if they have more than one dimension and fewer rows than columns.
-    3. Concatenate data and data_ref along the second axis if the number of features in data is less than or equal 
+    3. Concatenate data and data_ref along the second axis if the number of features in data is less than or 
+    equal 
     to the number of features in data_ref. Otherwise, concatenate data_ref and data.
     4. Calculate the covariance matrices:
     a. Extract covariance matrices for each set of variables from the combined covariance matrix.
     5. Solve the optimization problem using eigenvalue decomposition:
     a. Ensure numerical stability by adding a small epsilon value to the diagonal of covariance matrices.
-    b. Compute the correlation coefficient matrix using the formula: inv(cy + eps * I) @ cyx @ inv(cx + eps * I) @ cxy.
+    b. Compute the correlation coefficient matrix using the formula: inv(cy + eps * I) @ cyx @ inv(cx + eps * 
+    I) @ cxy.
     6. Perform eigenvalue decomposition on the correlation coefficient matrix.
     7. Sort the eigenvalues in descending order.
     8. Set any small negative eigenvalues to a small positive value, assuming they are due to numerical error.
     9. Extract and return the sorted canonical correlation coefficients.
     End
-    ================================================================================================================
+    ==========================================================================================================
     """
-    # -------------------------------- Convert data to ndarray if it's not already ---------------------------------
+    # ----------------------------- Convert data to ndarray if it's not already ------------------------------
     data = np.array(data) if not isinstance(data, np.ndarray) else data
     data_ref = np.array(data_ref) if not isinstance(data_ref, np.ndarray) else data_ref
     
@@ -124,9 +127,11 @@ def cca_analysis(data, data_ref):
     # Solve the optimization problem using eigenvalue decomposition
     # Adding np.eye(*cy.shape) * eps ensures numerical stability
     eps = np.finfo(float).eps
-    # corr_coef = np.linalg.inv(cy + np.eye(*cy.shape) * eps) @ cyx @ np.linalg.inv(cx + np.eye(*cx.shape) * eps) @ cxy
+    # corr_coef = np.linalg.inv(cy + np.eye(*cy.shape) * eps) @ cyx @ np.linalg.inv(cx + np.eye(*cx.shape) 
+    # * eps) @ cxy
     
-    corr_coef = np.linalg.inv(cy + eps * np.eye(cy.shape[0])) @ cyx @ np.linalg.inv(cx + eps * np.eye(cx.shape[0])) @ cxy
+    corr_coef = np.linalg.inv(cy + eps * np.eye(cy.shape[0])) @ cyx @ np.linalg.inv(cx + eps * 
+                                                                                    np.eye(cx.shape[0])) @ cxy
 
     # Eigenvalue decomposition and sorting
     eig_vals = np.linalg.eigvals(corr_coef)
