@@ -1,14 +1,14 @@
 import numpy as np
 
-# ================================================= CAR Filter =====================================================
+# ============================================== CAR Filter ==================================================
 def car(data, reference_channel=None):
     """
     Computes the common average reference (CAR) for EEG signals.
     Parameters:
     - data: EEG data matrix with dimensions (number of samples, number of channels, number of trials).
-    - reference_channel: Index of the reference channel for CAR. If None, the average potential across all electrodes
-    is used.
-    ==================================== Flowchart for the car_filter function =====================================
+    - reference_channel: Index of the reference channel for CAR. If None, the average potential across all 
+    electrodes is used.
+    ================================== Flowchart for the car_filter function =================================
     Start
     1. Convert data to a NumPy array if it's not already.
     2. Transpose the data if it has more than one dimension and fewer rows than columns.
@@ -24,9 +24,9 @@ def car(data, reference_channel=None):
         a. Calculate the average potential across all electrodes for each trial.
         b. Subtract the average potential from each electrode's potential for each trial.
     End
-    ================================================================================================================
+    ==========================================================================================================
     """
-    # ------------------------------ Convert data to ndarray if it's not already -----------------------------------
+    # ---------------------------- Convert data to ndarray if it's not already -------------------------------
     data = np.array(data) if not isinstance(data, np.ndarray) else data
     
     data_car = data.copy()
@@ -45,7 +45,7 @@ def car(data, reference_channel=None):
             data_car[:, channels] -= data_car[:, reference_channel].reshape(-1, 1)
     else:
         # Calculate the average potential across all electrodes for each trial
-        average_potential = np.mean(data_car, axis=1, keepdims=True) # Vectorized Common Average Referencing (CAR)
+        average_potential = np.mean(data_car, axis=1, keepdims=True) 
 
         # Subtract the average potential from each electrode's potential
         data_car -= average_potential
