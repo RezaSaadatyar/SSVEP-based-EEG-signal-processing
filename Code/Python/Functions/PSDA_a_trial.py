@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# =============================================== PSDA a trial =====================================================
+# ============================================ PSDA a trial ==================================================
 def psda_a_trial(data, fs, num_sample_neigh, f_stim, num_harmonic, title, fig_size=[4, 3]):
     """
     PSDA_A_TRIAL calculates the Power Spectral Density Amplitude (PSDA) for a single trial.
@@ -14,7 +14,7 @@ def psda_a_trial(data, fs, num_sample_neigh, f_stim, num_harmonic, title, fig_si
     Outputs:
       - max_freq: Maximum frequency found using PSDA.
       - label: Index of the stimulation frequency with maximum PSDA.
-    =================================== Flowchart for the psda a trial function ====================================
+    ================================ Flowchart for the psda a trial function =================================
     Start
     1. Convert data to ndarray if it's not already.
     2. Transpose the data if it has more than one dimension and has fewer rows than columns.
@@ -36,15 +36,16 @@ def psda_a_trial(data, fs, num_sample_neigh, f_stim, num_harmonic, title, fig_si
     15. Add legend to the plot.
     16. Return the maximum PSDA value and its corresponding label.
     End
-    ================================================================================================================
+    ==========================================================================================================
     """
-    # ----------------------------- Convert data to ndarray if it's not already ------------------------------------
+    # ---------------------------- Convert data to ndarray if it's not already -------------------------------
     data = np.array(data) if not isinstance(data, np.ndarray) else data
 
     # Transpose the data if it has more than one dimension and has fewer rows than columns
     data = data.T if data.ndim > 1 and data.shape[0] < data.shape[-1] else data
     
-    f = np.linspace(0, fs/2, int(np.floor(data.shape[0]/2)) + 1) # Generate frequency axis up to Nyquist frequency
+    # Generate frequency axis up to Nyquist frequency
+    f = np.linspace(0, fs/2, int(np.floor(data.shape[0]/2)) + 1) 
     step = fs * (num_sample_neigh/2) / data.shape[0] # Calculate the frequency step size for each neighborhood
     # Initialize array to store PSDA values for each stimulation frequency and harmonic
     psda = np.zeros((len(f_stim), num_harmonic)) 
@@ -63,7 +64,8 @@ def psda_a_trial(data, fs, num_sample_neigh, f_stim, num_harmonic, title, fig_si
             ind_h = np.where((f >= h * val - step) & (f <= h * val + step))[0]
             
             # Compute PSDA and plot PSD in the neighborhood
-            psda[i, h-1] = 10 * np.log10((num_sample_neigh * max(psd[ind_fk])) / (np.sum(psd[ind_h]) - max(psd[ind_fk])))
+            psda[i, h-1] = 10 * np.log10((num_sample_neigh * max(psd[ind_fk])) / (np.sum(psd[ind_h]) - 
+                                                                                  max(psd[ind_fk])))
             plt.plot(f[ind_h], psd[ind_h], linewidth=2.5, label=f"F_stim{i + 1}.H{h}:{val * h}")
             
     # Find the maximum PSDA value and its corresponding label
