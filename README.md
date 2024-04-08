@@ -35,7 +35,7 @@ In SSVEP-based BCIs, visual stimuli are triggered at constant frequencies betwee
 
 - [x] **Data pre-processing**<br/>
         ***Convert gdf data to mat:***<br/>
-Put the "biosig4format" folder on the desktop ---> biosig4octmat ---> biosig ---> run the *install* code ---> run [Signal, Inform] = sload('file name.gdf ') in command window then save Signal and Inform (*App1_Data_Preprocessing_a_trial.m; App2_Data_Preprocessing_all_trial.m*).<br/>
+Put the "biosig4format" folder on the desktop ---> [biosig4octmat](https://sourceforge.net/projects/biosig/files/BioSig%20for%20Octave%20and%20Matlab/) ---> biosig ---> run the *install* code ---> run [Signal, Inform] = sload('file name.gdf ') in command window then save Signal and Inform (*App1_Data_Preprocessing_a_trial.m; App2_Data_Preprocessing_all_trial.m*).<br/>
        Inform.EVENT.TYP ---> Label trials<br/>
        Inform.EVENT.Pos ---> Time start the trials<br/>
 
