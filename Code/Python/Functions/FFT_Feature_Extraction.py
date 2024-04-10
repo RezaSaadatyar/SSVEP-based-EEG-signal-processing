@@ -4,14 +4,37 @@ from scipy import stats
 import matplotlib.pyplot as plt
 from sklearn import preprocessing
 
-def fft_feature_extraction(data, fs, num_channel, subbands, labels=None, display_figuare="off"):
+# ========================================== FFT_Feature_Extraction ==========================================
+def fft_feature_extraction(data, labels, fs, num_channel, subbands, title="Feature Extraction using FFT",
+                           display_figuare="off"):
     """
-    ================================== Flowchart for the plot_data function ==================================
+    Parameters:
+    - data: EEG data matrix with dimensions (number of samples, number of channels, number of trials).
+    - labels: Array of labels corresponding to each trial.
+    - fs: Sampling frequency.
+    - num_channel: List or array of channel indices to consider for feature extraction.
+    - subbands: List or array of tuples specifying the frequency subbands.
+    - title: Title for the plot (default is "Feature Extraction using FFT").
+    - display_figure: Specifies whether to display the feature plot ("on" or "off").
+    ========================== Flowchart for the fft_feature_extraction function =============================
     Start
-    
+    1. Convert data to a numpy array if it's not already in that format.
+    2. Transpose the data if necessary to ensure proper dimensions.
+    3. Calculate the frequency vector f using the sampling frequency fs.
+    4. Initialize an array `features` to store the extracted features, with dimensions (number of trials, 
+    number of subbands * number of channels).
+    5. Loop over each trial in the data:
+        a. Compute the FFT (Fast Fourier Transform) of the EEG data for the selected channels.
+        b. Compute the power spectral density (PSD) by taking the absolute value of the FFT and selecting 
+        only the positive frequency components.
+        c. Loop over each subband:
+            i. Find the indices corresponding to the frequency subband.
+            ii. Extract the maximum PSD within the subband for each channel and update the `features` array.
+    6. If `display_figure` is set to "on":
+        a. Plot the extracted features using the `plot_features` function.
+    7. Return the `features` array.
     End
     ==========================================================================================================
-    Start
     """
     # --------------------------- Convert data to ndarray if it's not already --------------------------------
     data = np.array(data) if not isinstance(data, np.ndarray) else data
@@ -24,55 +47,51 @@ def fft_feature_extraction(data, fs, num_channel, subbands, labels=None, display
 
     for i in range(data.shape[-1]):
         data_fft = np.fft.fft(data[:, num_channel, i], axis=0) # Compute FFT
-        data_psd = np.abs(data_fft[:len(data_fft) // 2, :])         # Compute power spectral density (PSD)
+        data_psd = np.abs(data_fft[:len(data_fft) // 2, :])    # Compute power spectral density (PSD)
         
         for ind_sb, (val_sb1, val_sb2) in enumerate(zip(*subbands)): # Feature extraction for each subband
             # Find indices corresponding to the subband
             ind = np.where((f >= val_sb1) & (f <= val_sb2))[0]
             
             # Update features with maximum PSD within subband
-            features[i, ind_sb * len(num_channel):(ind_sb + 1) * len(num_channel)] = np.max(data_psd[ind, :], 
+            features[i, ind_sb * len(num_channel):(ind_sb + 1) * len(num_channel)] = np.max(data_psd[ind, :],
                                                                                         axis=0)
     if display_figuare == "on":
-        plot_features(features, labels, fig_size=(4, 3), title="", normalize_active="on")
-       
-        
-       
-        # classes = np.unique(labels)   # Get unique classes
-        # colors = sns.color_palette("bright", len(classes)).as_hex() # Define colors
-        
-        # if features.shape[1] >= 3:
-        #     ax = fig.add_subplot(111, projection='3d')
-        #     ax.set_xlabel('Feature 1', fontsize=10, loc="center", labelpad=0)
-        #     ax.set_ylabel('Feature 2', fontsize=10, loc="center", labelpad=1)
-        #     ax.set_zlabel('Feature 3', fontsize=10, va="center", labelpad=0)
-        #     plt.tick_params(axis='x', length=1.5, width=1, which='both', bottom=True, top=False, labelbottom=
-        #                     True, labeltop=False, pad=-3)
-        #     plt.tick_params(axis='y', length=1.5, width=1, which="both", bottom=False, top=False, labelbottom=
-        #                     True, labeltop=True, pad=-5, rotation=50)
-        #     plt.tick_params(axis='z', length=1.5, width=1, which="both", bottom=False, top=False, labelbottom=
-        #                     True, labeltop=True, pad=0)
-        #     ax.view_init(5, -110)
-        
-        # for i, cls in enumerate(classes):
-        #     if features.shape[1] < 3:
-        #         plt.plot(features[labels == cls, 0], features[labels == cls, 1], "o", label=cls, color=colors[i], 
-        #                 linewidth=2, markersize=3)
-        #         plt.xlabel('Feature 1', fontsize=10, loc="center", labelpad=0)
-        #         plt.ylabel('Feature 2', loc="center", labelpad=0)
-        #     else:
-        #         ax.plot3D(features[labels == cls, 0], features[labels == cls, 1], features[labels == cls, 2],
-        #                   "o", color=colors[i], label=cls, linewidth=2, markersize=3)
-        
-        # plt.autoscale(enable=True, axis="x", tight=True)
-        # plt.legend(title='Class', loc=5, fontsize=9, ncol=1, handlelength=0, handletextpad=0.25, frameon=False, 
-        #     labelcolor='linecolor') # Set legend
+        plot_features(features, labels, title, fig_size=(4, 3))
     
     return features
 
-
 # ============================================ Plot features =================================================
-def plot_features(data, labels, fig_size=(4, 3), title="Data raw", normalize_active="on"):
+def plot_features(data, labels, title=None, fig_size=(4, 3)):
+    """
+    Parameters:
+    - data: Feature matrix with dimensions (number of samples, number of features).
+    - labels: Array of labels corresponding to each sample.
+    - title: Title for the plot.
+    - fig_size: Tuple specifying the size of the figure (default is (4, 3)).
+    ============================== Flowchart for the plot_features function ==================================
+    Start
+    1. Convert the input data to a numpy array if it's not already in that format.
+    2. Transpose the data if necessary to ensure proper dimensions.
+    3. Obtain the unique classes from the labels.
+    4. Define colors for each class using the seaborn color palette.
+    5. Normalize the data using Min-Max scaling.
+    6. Plot the data based on the number of features:
+        a. If there's only one feature:
+            i. Create a 4x4 grid for plotting.
+            ii. Plot the feature values against the sample indices for each class.
+            iii. Plot the Gaussian distribution of the feature values for each class.
+        b. If there are two features:
+            i. Create a 4x4 grid for plotting.
+            ii. Plot the feature values in a scatter plot for each class.
+            iii. Plot the Gaussian distribution of each feature for each class.
+        c. If there are more than two features:
+            i. Create a 3D plot for visualizing the features.
+            ii. Plot the feature values in a 3D scatter plot for each class.
+            iii. Plot the Gaussian distribution of each feature for each class.
+    7. Adjust the subplot layout and spacing.
+    8. Return the plot.
+    """
     # --------------------------- Convert data to ndarray if it's not already --------------------------------
     data = np.array(data) if not isinstance(data, np.ndarray) else data
     
@@ -96,11 +115,11 @@ def plot_features(data, labels, fig_size=(4, 3), title="Data raw", normalize_act
             
             tim = np.linspace(np.min(data[labels==val, 0]), np.max(data[labels==val, 0]), num=len(data[labels
                               ==val, 0]), retstep=True)
-            ax.plot(tim[0], data[labels==val, 0], '.', markersize=10, color=colors[i, :], label=val)
+            ax.plot(tim[0], data[labels==val, 0], '.', markersize=10, color=colors[i], label=val)
             
             _, bins = np.histogram(data[labels==val, 0], density=True)
-            ax1.plot(bins, stats.norm.pdf(bins, np.mean(data[labels==val, 0]), np.std(data[labels==val, 0])), 
-                     linewidth=1.5, color=colors[i, :])
+            ax1.plot(bins, stats.norm.pdf(bins, np.mean(data[labels==val, 0]), np.std(data[labels==val, 0])),
+                     linewidth=1.5, color=colors[i])
             ax1.fill_between(bins, y1=stats.norm.pdf(bins, np.mean(data[labels==val, 0]), np.std(data[labels==
                              val, 0])), y2=0, alpha=0.4)
             
@@ -119,28 +138,28 @@ def plot_features(data, labels, fig_size=(4, 3), title="Data raw", normalize_act
         
         for i, val in enumerate(classes):
             
-            ax.plot(data[labels==val, 0], data[labels==val, 1], '.', markersize=10, color=colors[i, :], label=
+            ax.plot(data[labels==val, 0], data[labels==val, 1], '.', markersize=10, color=colors[i], label=
                     val)
             
             _, bins = np.histogram(data[labels==val, 0], density=True)
             ax1.plot(bins, stats.norm.pdf(bins, np.mean(data[labels==val, 0]), np.std(data[labels==val, 0])), 
-                     linewidth=1.5, color=colors[i, :])
+                     linewidth=1.5, color=colors[i])
             ax1.fill_between(bins, y1=stats.norm.pdf(bins, np.mean(data[labels==val, 0]), np.std(data[labels==
                              val, 0])), y2=0, alpha=0.4)
 
             _, bins = np.histogram(data[labels==val, 1], density=True)
             ax2.plot(stats.norm.pdf(bins, np.mean(data[labels==val, 1]), np.std(data[labels==val, 1])), bins,
-                     linewidth=2.5, color=colors[i, :])
+                     linewidth=2.5, color=colors[i])
             ax2.fill_betweenx(bins, stats.norm.pdf(bins, np.mean(data[labels==val, 1]), np.std(data[labels==
-                              val, 1])), 0, alpha=0.4, color=colors[i, :])
-            
-        ax2.spines[['top', 'right', 'bottom']].set_visible(False), 
+                              val, 1])), 0, alpha=0.4, color=colors[i])
+
+        ax2.spines[['top', 'right', 'bottom']].set_visible(False)
         ax2.tick_params(bottom=False, top=False, labelbottom=False, right=False, left=False, labelleft=False)
-        ax.set_xlabel('Feature 1', fontsize=10, va='center')
-        ax.set_ylabel('Feature 2', fontsize=10, rotation=90, va='center')
-        ax.tick_params(axis='x', length=1.5, width=1, which='both', bottom=True, top=False, labelbottom=True, 
+        ax.set_xlabel('Feature 1', fontsize=10)
+        ax.set_ylabel('Feature 2', fontsize=10)
+        ax.tick_params(axis='x', length=1.5, width=1, which='both', bottom=True, top=False, labelbottom=True,
                        labeltop=False, pad=0)
-        ax.tick_params(axis='y', length=1.5, width=1, which="both", bottom=False, top=False, labelbottom=True, 
+        ax.tick_params(axis='y', length=1.5, width=1, which="both", bottom=False, top=False, labelbottom=True,
                        labeltop=True, pad=0)
             
     elif data.shape[-1] > 2:
@@ -153,35 +172,36 @@ def plot_features(data, labels, fig_size=(4, 3), title="Data raw", normalize_act
         for i, val in enumerate(classes):
             
             ax.plot3D(data[labels==val, 0], data[labels==val, 1], data[labels==val, 2], '.', markersize=10, 
-                      color=colors[i, :], label=f"{val}")
+                      color=colors[i], label=val)
             
             _, bins = np.histogram(data[labels==val, 0], density=True)
-            ax1.plot(bins, stats.norm.pdf(bins, np.mean(data[labels==val, 0]), np.std(data[labels==val, 0])), 
-                     linewidth=2.5, color=colors[i, :])
+            ax1.plot(bins, stats.norm.pdf(bins, np.mean(data[labels==val, 0]), np.std(data[labels==val, 0])),
+                     linewidth=2.5, color=colors[i])
             ax1.fill_between(bins, y1=stats.norm.pdf(bins, np.mean(data[labels==val, 0]), np.std(data[labels==
-                             val, 0])), y2=0, alpha=0.4, color=colors[i, :])
+                             val, 0])), y2=0, alpha=0.4, color=colors[i])
             
             _, bins = np.histogram(data[labels==val, 1], density=True)
-            ax2.plot(stats.norm.pdf(bins, np.mean(data[labels==val, 1]), np.std(data[labels==val, 1])), bins, 
-                     linewidth=2.5, color=colors[i, :])
+            ax2.plot(stats.norm.pdf(bins, np.mean(data[labels==val, 1]), np.std(data[labels==val, 1])), bins,
+                     linewidth=2.5, color=colors[i])
             ax2.fill_betweenx(bins, stats.norm.pdf(bins, np.mean(data[labels==val, 1]), np.std(data[labels==
-                              val, 1])), 0, alpha=0.4, color=colors[i, :])
-            
+                              val, 1])), 0, alpha=0.4, color=colors[i])
+
             _, bins = np.histogram(data[labels==val, 2], density=True)
             ax3.plot(-stats.norm.pdf(bins, np.mean(data[labels==val, 2]), np.std(data[labels==val, 2])), bins,
-                     linewidth=2.5, color=colors[i, :])
+                     linewidth=2.5, color=colors[i])
             ax3.fill_betweenx(bins, 0, -stats.norm.pdf(bins, np.mean(data[labels==val, 2]), np.std(data[labels
-                              ==val, 2])), alpha=0.4, color=colors[i, :])
+                              ==val, 2])), alpha=0.4, color=colors[i])
         
         ax.view_init(5, -120)
-        ax.set_xlabel('Feature 1', fontsize=10, loc='center')
-        ax.set_ylabel('Feature 2', fontsize=10, rotation=90, va='center')
+        ax.set_xlabel('Feature 1', fontsize=10)
+        ax.set_ylabel('Feature 2', fontsize=10)
         ax.set_zlabel('Feature 3', fontsize=10, labelpad=-5, va='center') # labelpad=1,
         ax.tick_params(axis='x', length=1.5, width=1, which='both', bottom=True, top=False, labelbottom=True, 
                        labeltop=False, pad=-6, rotation=-90)
         ax.tick_params(axis='y', length=1.5, width=1, which="both", bottom=False, top=False, labelbottom=True, 
                        labeltop=True, pad=-6, rotation=90)
-        ax.tick_params(axis='z', which='both', bottom=False, top=False, labelbottom=True, labeltop=False, pad=-2)
+        ax.tick_params(axis='z', which='both', bottom=False, top=False, labelbottom=True, labeltop=False, 
+                       pad=-2)
         
         ax2.spines[['top', 'right', 'bottom']].set_visible(False)
         ax3.spines[['top', 'bottom', 'left']].set_visible(False)
@@ -190,12 +210,13 @@ def plot_features(data, labels, fig_size=(4, 3), title="Data raw", normalize_act
 
     ax.grid(True, linestyle='--', which='major', color='grey', alpha=0.3)
     ax1.set_title(title, fontsize=10, pad=0, y=1)
-    ax1.spines[['top', 'left', 'right']].set_visible(False),    
+    ax1.spines[['top', 'left', 'right']].set_visible(False)
     ax1.tick_params(bottom=False, top=False, labelbottom=False, right=False, left=False, labelleft=False)
     ax.legend(title='Class', fontsize=9, loc=5, ncol=3, handlelength=0, handletextpad=0.25, frameon=True, 
-              labelcolor='linecolor') 
+              labelcolor='linecolor')
 
-    fig.subplots_adjust(wspace=0, hspace=0), plt.autoscale(enable=True, axis="x",tight=True)
+    fig.subplots_adjust(wspace=0, hspace=0)
+    plt.autoscale(enable=True, axis="x",tight=True)
     # ax.yaxis.set_ticks(np.linspace(ax.get_yticks()[1], ax.get_yticks()[-2], int(len(ax.get_yticks()) / 2), 
     # dtype='int'))
     # ax.tick_params(direction='in', colors='grey', grid_color='r', grid_alpha=0.5)
