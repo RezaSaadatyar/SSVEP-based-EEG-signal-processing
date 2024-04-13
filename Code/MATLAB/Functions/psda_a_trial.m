@@ -1,5 +1,6 @@
 function [max_freq, label]=psda_a_trial(fs, xi, num_sample_neigh, f_stim, num_harmonic, ...
     channel, trial)
+% ================================== (2023-2024) ======================================
 % ======================== Presented by: Reza Saadatyar ===============================
 % ====================== E-mail: Reza.Saadatyar@outlook.com ===========================
 

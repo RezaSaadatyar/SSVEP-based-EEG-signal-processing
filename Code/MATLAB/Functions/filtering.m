@@ -1,5 +1,6 @@
 function filtered_data = filtering(data, f_low, f_high, order, fs, notch_freq, ...
                                    filter_active, notch_filter, type_filter) 
+% ================================== (2023-2024) ======================================
 % ======================== Presented by: Reza Saadatyar ===============================
 % ====================== E-mail: Reza.Saadatyar@outlook.com ===========================
 
