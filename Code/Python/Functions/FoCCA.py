@@ -3,6 +3,8 @@ import numpy as np
 # ================================= Fusing Canonical Coefficients (FoCCA) ====================================
 def focca_analysis(data, labels, fs, f_stim, num_channel, num_harmonic, a, b):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     Parameters:
     - data: EEG data matrix with dimensions (number of samples, number of channels, number of trials).
     - labels: True labels corresponding to each trial.
@@ -81,6 +83,8 @@ def focca_analysis(data, labels, fs, f_stim, num_channel, num_harmonic, a, b):
 
 def cca_analysis(data, data_ref):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     Canonical Correlation Analysis (CCA)
     Parameters:
     - data: EEG data or one set of variables.

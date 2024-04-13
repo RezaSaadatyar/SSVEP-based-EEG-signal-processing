@@ -3,6 +3,8 @@ import numpy as np
 # ============================================== psda_analysis ===============================================
 def psda_analysis(data, f_stim, num_sample_neigh, fs, num_harmonic):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     Calculate the Power Spectral Density Amplitude (PSDA) for all trials.
     Inputs:
         - data: EEG data matrix with dimensions (number of samples, number of channels).

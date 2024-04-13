@@ -68,6 +68,8 @@ def msi(data, fs, f_stim, num_channel, num_harmonic):
 # Perform msi analysis for multiple channels
 def msi_analysis(data, data_ref):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     Parameters:
     - data: EEG data matrix with dimensions (number of samples, number of channels).
     - data_ref: Reference signal matrix with dimensions (number of samples, number of channels).

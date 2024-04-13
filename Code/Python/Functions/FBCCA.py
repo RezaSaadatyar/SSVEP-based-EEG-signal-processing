@@ -5,6 +5,8 @@ from scipy import signal
 def fbcca_analysis(data, labels, fs, f_stim, num_channel, num_harmonic, a, b, filter_banks, order, notch_freq, 
                    quality_factor, filter_active, notch_filter, type_filter):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     Parameters:
     - data: EEG data matrix with dimensions (number of samples, number of channels, number of trials).
     - labels: Labels corresponding to each trial.
@@ -97,6 +99,8 @@ def fbcca_analysis(data, labels, fs, f_stim, num_channel, num_harmonic, a, b, fi
 # =============================================== CCA ========================================================
 def cca_analysis(data, data_ref):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     Canonical Correlation Analysis (CCA)
     Parameters:
     - data: EEG data or one set of variables.

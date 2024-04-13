@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, val_ylim='', size_fig=(7,5), 
               title='', display_figure="off"):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     Parameters:
     - data: EEG data to be plotted.
     - fs: Sampling frequency of the EEG data.

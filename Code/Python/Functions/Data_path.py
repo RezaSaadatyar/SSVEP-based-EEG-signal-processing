@@ -4,6 +4,8 @@ import os
 # Function to construct the path to a data folder and list files within it
 def data_path(folder_path, data_format, depth=0):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     Parameters:
     - folder_path: Path to the folder to search.
     - data_format: Desired format of the data files.

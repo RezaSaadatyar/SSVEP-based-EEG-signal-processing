@@ -3,6 +3,8 @@ import numpy as np
 # ===================== Feature extraction using Canonical Correlation Analysis (CCA) ========================
 def cca_feature_extraction(data, fs, f_stim, num_channel, num_harmonic):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     Parameters:
     - data: EEG data matrix with dimensions (number of samples, number of channels, number of trials).
     - fs: Sampling frequency of the EEG data.
@@ -63,6 +65,8 @@ def cca_feature_extraction(data, fs, f_stim, num_channel, num_harmonic):
 
 def cca_analysis(data, data_ref):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     Canonical Correlation Analysis (CCA)
     Parameters:
     - data: EEG data or one set of variables.

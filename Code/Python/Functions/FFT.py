@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 # ================================================= fft ======================================================
 def fft_analysis(data, filtered_data, fs, channel=0, trial=0, title='FFT Analysis', size_fig=[5, 3]):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     Perform FFT analysis on given data and its filtered counterpart.
     Parameters:
     - data: Numpy array containing the raw signal data.

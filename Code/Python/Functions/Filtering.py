@@ -6,6 +6,8 @@ from scipy import signal
 def filtering(data, f_low, f_high, order, fs, notch_freq, quality_factor, filter_active="on", notch_filter="on",
               type_filter='bandpass'):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     FILTERING applies digital filtering to data.
     Inputs:
     - data: Input data to be filtered.

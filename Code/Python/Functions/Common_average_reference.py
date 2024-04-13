@@ -3,6 +3,8 @@ import numpy as np
 # ============================================== CAR Filter ==================================================
 def car(data, reference_channel=None):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     Computes the common average reference (CAR) for EEG signals.
     Parameters:
     - data: EEG data matrix with dimensions (number of samples, number of channels, number of trials).

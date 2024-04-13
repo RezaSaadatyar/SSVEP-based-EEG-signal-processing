@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 # ============================================ PSDA a trial ==================================================
 def psda_a_trial(data, fs, num_sample_neigh, f_stim, num_harmonic, title, fig_size=[4, 3]):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     PSDA_A_TRIAL calculates the Power Spectral Density Amplitude (PSDA) for a single trial.
     Inputs:
       - fs: Sampling frequency of the signal.

@@ -3,6 +3,8 @@ import numpy as np
 # ========================================== FFT_Feature_Extraction ==========================================
 def fft_feature_extraction(data, fs, num_channel, subbands):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     Parameters:
     - data: EEG data matrix with dimensions (number of samples, number of channels, number of trials).
     - fs: Sampling frequency.

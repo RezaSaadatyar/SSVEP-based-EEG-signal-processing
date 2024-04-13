@@ -7,6 +7,8 @@ from sklearn import preprocessing
 # ============================================ Plot features =================================================
 def plot_features(data, labels, title=None, location_legend=5, fig_size=(4, 3)):
     """
+    =============================== Presented by: Reza Saadatyar (2023-2024) =================================
+    ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
     Parameters:
     - data: Feature matrix with dimensions (number of samples, number of features).
     - labels: Array of labels corresponding to each sample.
