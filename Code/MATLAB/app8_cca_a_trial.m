@@ -44,7 +44,3 @@ for i = 1:length(f_stim)             % First loop for frequencies stimulation
     f_ref(i) = max(a);
 end
 [~, Label_predic] = max(f_ref)
-
-
-
-

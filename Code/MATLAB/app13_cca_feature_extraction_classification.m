@@ -73,7 +73,6 @@ sigma_pnn = 0.1;
 type_pnn = 'Euclidean';      % 'Euclidean';'Correlation'
 classifiation(features, labels, k_fold, num_neigh_knn, kernel_svm, distr_bayesian, ...
               discrimtype_lda, num_neurons_elm, num_center_rbf, sigma_pnn, type_pnn)
-
 %% ---------------------------------------- Plot --------------------------------------
 figure();
 classes = unique(labels);
