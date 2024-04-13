@@ -1,18 +1,13 @@
 import numpy as np
-import matplotlib.pyplot as plt
-from Functions import Plot_features
+
 # ========================================== FFT_Feature_Extraction ==========================================
-def fft_feature_extraction(data, labels, fs, num_channel, subbands, title="Feature Extraction using FFT",
-                           location_legend=5, display_figuare="off"):
+def fft_feature_extraction(data, fs, num_channel, subbands):
     """
     Parameters:
     - data: EEG data matrix with dimensions (number of samples, number of channels, number of trials).
-    - labels: Array of labels corresponding to each trial.
     - fs: Sampling frequency.
     - num_channel: List or array of channel indices to consider for feature extraction.
     - subbands: List or array of tuples specifying the frequency subbands.
-    - title: Title for the plot (default is "Feature Extraction using FFT").
-    - display_figure: Specifies whether to display the feature plot ("on" or "off").
     ========================== Flowchart for the fft_feature_extraction function =============================
     Start
     1. Convert data to a numpy array if it's not already in that format.
@@ -27,9 +22,7 @@ def fft_feature_extraction(data, labels, fs, num_channel, subbands, title="Featu
         c. Loop over each subband:
             i. Find the indices corresponding to the frequency subband.
             ii. Extract the maximum PSD within the subband for each channel and update the `features` array.
-    6. If `display_figure` is set to "on":
-        a. Plot the extracted features using the `plot_features` function.
-    7. Return the `features` array.
+    6. Return the `features` array.
     End
     ==========================================================================================================
     """
@@ -53,7 +46,5 @@ def fft_feature_extraction(data, labels, fs, num_channel, subbands, title="Featu
             # Update features with maximum PSD within subband
             features[i, ind_sb * len(num_channel):(ind_sb + 1) * len(num_channel)] = np.max(data_psd[ind, :],
                                                                                         axis=0)
-    if display_figuare == "on":
-        Plot_features.plot_features(features, labels, title, location_legend, fig_size=(4, 3))
-    
+
     return features
