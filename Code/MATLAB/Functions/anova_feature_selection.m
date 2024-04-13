@@ -28,8 +28,7 @@ function features = anova_feature_selection(data, labels, num_features)
 %% ====================================================================================
 if size(data, 1) < size(data, 2); data = data'; end
 if size(labels, 1) < size(labels, 2); labels = labels'; if size(labels, 2) > 1
-        labels= vec2ind(labels'); end; elseif size(data, 1) < size(data, 2)
-    data = data'; 
+        labels= vec2ind(labels'); end
 end
 if num_features > size(data, 2); num_features = size(data, 2); end
 
