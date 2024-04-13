@@ -17,13 +17,13 @@ labels = [ones(1, size(data.data1, 3)), 2 * ones(1, size(data.data2, 3)), 3 * on
     size(data.data3, 3))];
 %% ----------------------- Step 2: Filtering all trials -------------------------------
 fs = 256;                  % Sampling frequency
-f_low = 0.05;
-f_high = 13 - 1;
+f_low =  13 - 1;
+f_high = 100;
 order = 3;  
 notch_freq = 50;
 notch_filter = 'on';
 filter_active = 'on';
-type_filter = "high";   % low, high, bandpass
+type_filter = "bandpass";   % low, high, bandpass
 filtered_data = filtering(data_total, f_low, f_high, order, fs, notch_freq, filter_active, ...
     notch_filter, type_filter);
 data_car = car_filter(filtered_data); % CAR filter
