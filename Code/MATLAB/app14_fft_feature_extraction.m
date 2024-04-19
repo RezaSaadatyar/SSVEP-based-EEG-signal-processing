@@ -22,12 +22,13 @@ notch_freq = 50;
 notch_filter = 'on';
 filter_active = 'on';
 type_filter = "high";   % low, high, bandpass
+design_method = "IIR";      % IIR, FIR
 subbands= [12 25 38 16 33 50 20 41 62; % Sub_band        
            14 27 40 18 35 52 22 43 64];
 f_low = min(subbands(:)) - 1;
 f_high = max(subbands(:)) + 1;
 filtered_data = filtering(data_total, f_low, f_high, order, fs, notch_freq, filter_active, ...
-    notch_filter, type_filter);
+    notch_filter, type_filter, design_method);
 data_car = car_filter(filtered_data); % CAR filter
 %% ------------------------ Step 3: Feature Extraction using FFT ----------------------
 num_channel = 1:3;                  % Number of Channel

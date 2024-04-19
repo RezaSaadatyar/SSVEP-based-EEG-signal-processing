@@ -22,11 +22,12 @@ f_stim = [13 21 17];    % Frequencies stimulation
 f_high = min(f_stim)-1;
 order = 4;  
 notch_freq = 50;
-filter_active = 'off';
 notch_filter = 'on';
-type_filter = "high";   % low, high, bandpass
+filter_active = 'on';
+design_method = "IIR";      % IIR, FIR
+type_filter = "high";       % low, high, bandpass
 filtered_data = filtering(data_total, f_low, f_high, order, fs, notch_freq, filter_active, ...
-    notch_filter, type_filter);
+    notch_filter, type_filter, design_method);
 x_car = car_filter(filtered_data); % CAR filter
 %% -------------------------------- Step 3: PSDA Method -------------------------------
 num_harmonic = 2;     % Number of harmonic for each frequency stimulation

@@ -23,9 +23,10 @@ order = 3;
 notch_freq = 50;
 notch_filter = 'on';
 filter_active = 'off';
+design_method = "IIR";      % IIR, FIR
 type_filter = "bandpass";   % low, high, bandpass
 filtered_data = filtering(data_total, f_low, f_high, order, fs, notch_freq, filter_active, ...
-    notch_filter, type_filter);
+    notch_filter, type_filter, design_method);
 data_car = car_filter(filtered_data); % CAR filter
 %% ------------------------------- Step 3: MSI Method ---------------------------------
 num_channel = 1:2;                  % Number of Channel
