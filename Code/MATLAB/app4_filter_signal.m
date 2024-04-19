@@ -21,9 +21,10 @@ order = 4;
 notch_freq = 50;
 filter_active = 'on';
 notch_filter = 'on';
+design_method = "IIR";      % IIR, FIR
 type_filter = "bandpass";   % low, high, bandpass
 filtered_data = filtering(x, f_low, f_high, order, fs, notch_freq, filter_active, ...
-    notch_filter, type_filter);
+    notch_filter, type_filter, design_method);
 trial = 1;
 channel = 1;
 %% --------------------- Step 3: Fourier transform for a channel ----------------------

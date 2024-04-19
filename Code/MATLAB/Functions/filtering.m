@@ -1,5 +1,5 @@
 function filtered_data = filtering(data, f_low, f_high, order, fs, notch_freq, ...
-                                   filter_active, notch_filter, type_filter) 
+                                   filter_active, notch_filter, type_filter, design_method) 
 % ================================== (2023-2024) ======================================
 % ======================== Presented by: Reza Saadatyar ===============================
 % ====================== E-mail: Reza.Saadatyar@outlook.com ===========================
@@ -50,18 +50,29 @@ if ndims(data) > 2 && size(data, 1) < size(data, 3)
 elseif size(data, 1) < size(data, 2)
     data = data';
 end
-
-% Design Butterworth filter based on the specified type
-if strcmp(type_filter, 'low')
-    [b, a] = butter(order, f_low, 'low');
-elseif strcmp(type_filter, 'high')
-    [b, a] = butter(order, f_high, 'high');
-elseif strcmp(type_filter, 'bandpass')
-    [b, a] = butter(order, [f_low, f_high], 'bandpass');
-elseif strcmp(type_filter, 'bandstop')
-    [b, a] = butter(order, [f_low, f_high], 'stop');
+if strcmp(design_method, 'IIR')
+    % Design Butterworth filter based on the specified type
+    if strcmp(type_filter, 'low')
+        [b, a] = butter(order, f_low, 'low');
+    elseif strcmp(type_filter, 'high')
+        [b, a] = butter(order, f_high, 'high');
+    elseif strcmp(type_filter, 'bandpass')
+        [b, a] = butter(order, [f_low, f_high], 'bandpass');
+    elseif strcmp(type_filter, 'bandstop')
+        [b, a] = butter(order, [f_low, f_high], 'stop');
+    end
+else
+    a = 1;
+    if strcmp(type_filter, 'low')
+        b = fir1(order, f_low, 'low');
+    elseif strcmp(type_filter, 'high')
+        b = fir1(order, f_high, 'high');
+    elseif strcmp(type_filter, 'bandpass')
+        b = fir1(order, [f_low, f_high], 'bandpass');
+    elseif strcmp(type_filter, 'bandstop')
+        b = fir1(order, [f_low, f_high], 'stop');
+    end
 end
-
 % Design a notch filter
 [b_notch, a_notch] = butter(3, [notch_freq - 0.5, notch_freq + 0.5]/(fs/2), 'stop');
 
