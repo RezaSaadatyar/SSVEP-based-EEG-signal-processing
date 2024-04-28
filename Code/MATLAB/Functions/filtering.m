@@ -3,6 +3,18 @@ function filtered_data = filtering(data, f_low, f_high, order, fs, notch_freq, .
 % ================================== (2023-2024) ======================================
 % ======================== Presented by: Reza Saadatyar ===============================
 % ====================== E-mail: Reza.Saadatyar@outlook.com ===========================
+% Example:
+% fs = 256;                  % Sampling frequency
+% order = 3; 
+% f_low = 0.5;
+% f_high = 100;
+% notch_freq = 50;
+% notch_filter = 'on';
+% filter_active = 'on';
+% design_method = "IIR";      % IIR, FIR
+% type_filter = "bandpass";   % low, high, bandpass
+% filtered_data = filtering(data_total, f_low, f_high, order, fs, notch_freq, filter_active, ...
+%     notch_filter, type_filter, design_method);
 
 % FILTERING applies digital filtering to data.
 % Inputs:
@@ -20,24 +32,18 @@ function filtered_data = filtering(data, f_low, f_high, order, fs, notch_freq, .
 %   - filtered_data: Filtered data.
 %% ======================== Flowchart for the filtering function ======================
 % Start
-% 1. Normalize frequency values (f_low, f_high)
-% 2. Check the dimensions of the input data:
-%    a. If it's a 3D matrix and has more rows than columns:
-%       - Transpose the data using permute to make channels as slices
-%    b. If it has more columns than rows:
-%       - Transpose the data to make channels as rows
-% 3. Design Butterworth filter based on the specified type:
-%    - Lowpass filter: Design Butterworth filter with 'low' option
-%    - Highpass filter: Design Butterworth filter with 'high' option
-%    - Bandpass filter: Design Butterworth filter with 'bandpass' option
-%    - Bandstop filter: Design Butterworth filter with 'stop' option
-% 4. Design a notch filter:
-%    - Use iirnotch to design a notch filter based on notch frequency and quality factor
-% 5. Notch filter:
-%    - Apply notch filtering if notch_filter is 'on'
-% 6. Apply the digital filter using filtfilt:
-%    - Apply filtering if filter_active is 'on'
-% 7. Output the filtered data (filtered_data)
+% 1. Normalize the frequency values by dividing them by half the sampling frequency 
+% (Nyquist frequency).
+% 2. Transpose the data if it has more rows than columns or if specified by the user.
+% 3. Design the filter based on the specified parameters and filter type:
+%    a. If the design method is IIR:
+%       - Design Butterworth filter using the 'butter' function.
+%    b. If the design method is FIR:
+%       - Design FIR filter using the 'fir1' function. 
+% 4. Design a notch filter if specified by the user using the 'butter' function.
+% 5. Apply the notch filter to the data if specified by the user using 'filtfilt'.
+% 6. Apply the designed filter to the data if active using 'filtfilt'.
+% 7. Return the filtered data.
 % End
 %% ====================================================================================
 % Normalize frequency values
