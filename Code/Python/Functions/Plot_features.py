@@ -161,7 +161,7 @@ def plot_features(data, labels, title=None, location_legend=5, fig_size=(4, 3)):
               frameon=True, labelcolor='linecolor')
 
     fig.subplots_adjust(wspace=0, hspace=0)
-    plt.autoscale(enable=True, axis="x",tight=True)
+    plt.autoscale(enable=True, axis="x", tight=True)
     # ax.yaxis.set_ticks(np.linspace(ax.get_yticks()[1], ax.get_yticks()[-2], int(len(ax.get_yticks()) / 2), 
     # dtype='int'))
     # ax.tick_params(direction='in', colors='grey', grid_color='r', grid_alpha=0.5)
