@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 
 # =============================================== Plot data ==================================================
 # Function to plot EEG data
-def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, val_ylim='', size_fig=(7,5), 
-              title='', display_figure="off"):
+def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, val_ylim='', title='', 
+             size_fig=(7,5), display_figure="off"):
     """
     =============================== Presented by: Reza Saadatyar (2023-2024) =================================
     ================================ E-mail: Reza.Saadatyar@outlook.com ======================================
