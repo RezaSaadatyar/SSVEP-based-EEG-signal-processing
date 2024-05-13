@@ -52,14 +52,14 @@ def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, 
             print(f"Error, {first_point = } or {last_point = } > data size: {len(data)}")
             return
       
-        data = data[first_point:last_point,:] # Extract the specified range of data
+        data = data[first_point:last_point, :] # Extract the specified range of data
         std = np.sort(np.std(data, axis=0))   # Calculate the standard deviation of each channel
         
         # If the array is larger than 100 elements, exclude the first and last elements before taking the mean
         std = np.mean(std[1:-1] if len(std) > 100 else std)
         
         _, axs = plt.subplots(nrows=1, sharey='row', figsize=size_fig) # Create subplots for the figure
-        offset = np.arange(len(channels_name)*std*val_ylim, 0, -std*val_ylim)
+        offset = np.arange(len(channels_name) * std * val_ylim, 0, -std * val_ylim)
 
         if fs is not None and np.array(fs) > 0: # Check if the sampling frequency is provided 
             time = (np.linspace(start=first_point/fs, stop=last_point/fs, num=len(data))).flatten()
@@ -84,12 +84,7 @@ def plot_data(data, fs=None, channels_name=None, first_point=0, last_point=100, 
             label.set_color(line[i].get_color())   # Set label color to match the line color
         
         # Auto-scale x-axis and set y-axis limits
-        axs.autoscale(enable=True, axis="x",tight=True)
+        axs.autoscale(enable=True, axis="x", tight=True)
         min_ = np.min(np.min(data + offset, axis=0))
         max_ = np.max(np.max(data + offset, axis=0))
-        axs.set_ylim(min_ + min_*0.02, max_ + max_*0.01)
-        
-             # if len(std) > 100:
-        #     std = np.mean(std[1:len(std)-1])
-        # else:
-        #     std = np.mean(std)
+        axs.set_ylim(min_ + min_ * 0.02, max_ + max_* 0.01)

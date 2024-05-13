@@ -104,6 +104,3 @@ def filtering(data, f_low, f_high, order, fs, notch_freq, quality_factor, filter
     else filtered_data
 
     return filtered_data
-
-#  if type(filtered_data).__name__ != 'ndarray': 
-#         filtered_data = np.array(filtered_data)

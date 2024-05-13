@@ -69,7 +69,7 @@ def plot_fft(signal, filtered_signal, x_fft, x_filter_fft, f, fs, title, size_fi
     axs[0].plot(time, filtered_signal, label="Filtered Signal")
     axs[0].set_ylabel('Amplitude', fontsize=10)
     axs[0].set_title(title, fontsize=10)
-    axs[0].autoscale(enable=True, axis="x",tight=True)  # Auto-scale x-axis and set y-axis limits
+    axs[0].autoscale(enable=True, axis="x", tight=True)  # Auto-scale x-axis and set y-axis limits
     axs[0].set_xlabel('Time(Sec)', labelpad=-0.1, fontsize=10)
     axs[0].legend(fontsize=9, ncol=2, handlelength=0, handletextpad=0.25, frameon=False, labelcolor='linecolor')
     
@@ -79,7 +79,7 @@ def plot_fft(signal, filtered_signal, x_fft, x_filter_fft, f, fs, title, size_fi
     axs[1].set_ylabel('Magnitude (PSD)', fontsize=10)
     axs[1].set_xlabel('Frequency (Hz)', fontsize=10)
     axs[1].set_xlabel('F(Hz)', labelpad=-0.1, fontsize=10)
-    axs[1].autoscale(enable=True, axis="x",tight=True) 
+    axs[1].autoscale(enable=True, axis="x", tight=True) 
     
 #     axs[0].tick_params(axis='x', length=1, width=1, which='both', bottom=True, top=False, labelbottom=True, labeltop=False, pad=0)
 #     axs[1].tick_params(axis='x', length=1, width=1, which='both', bottom=True, top=False, labelbottom=True, labeltop=False, pad=0)
