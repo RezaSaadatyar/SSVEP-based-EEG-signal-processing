@@ -4,6 +4,20 @@ function classifiation(features, labels, k_fold, num_neigh_knn, kernel_svm, ...
 % ================================== (2023-2024) ======================================
 % ======================== Presented by: Reza Saadatyar ===============================
 % ====================== E-mail: Reza.Saadatyar@outlook.com ===========================
+% Example:
+% k_fold = 5;
+% num_neigh_knn = 3;
+% kernel_svm = 'linear';
+% distr_bayesian = 'normal';  % 'normal','kernel'
+% % 'linear','quadratic','diaglinear','diagquadratic','pseudolinear','pseudoquadratic'
+% discrimtype_lda = 'linear'; 
+% num_neurons_elm = 12;
+% Num_Neurons = 15;
+% num_center_rbf = 20;
+% sigma_pnn = 0.1;
+% type_pnn = 'Euclidean';      % 'Euclidean';'Correlation'
+% classifiation(features, labels, k_fold, num_neigh_knn, kernel_svm, distr_bayesian, ...
+%               discrimtype_lda, num_neurons_elm, num_center_rbf, sigma_pnn, type_pnn)
 
 % This function performs classification using various classifiers and evaluates them 
 % using k-fold cross-validation.
