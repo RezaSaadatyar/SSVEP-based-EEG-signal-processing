@@ -9,14 +9,29 @@ def feature_selecions(data, labels, num_features, threshold_var=0.1, n_neighbors
   """
   ================================ Presented by: Reza Saadatyar (2023-2024) ==================================
   ================================= E-mail: Reza.Saadatyar@outlook.com =======================================
-  Parameters:
-  data: Input data for feature extraction.
-  labels: Labels corresponding to the input data.
-  num_features: Number of features to select or retain.
-  type_feature_selection: Type of feature selection method to apply.
-  threshold_var: Variance threshold for variance-based feature selection.
-  n_neighbors_MI: Number of neighbors for mutual information-based feature selection.
-  L1_Parameter: Regularization parameter for L1-based feature selection
+  This function performs feature selection based on different methods.
+  Inputs:
+  - data: The feature matrix.
+  - labels: The labels corresponding to each sample.
+  - num_features: The desired number of features to select.
+  - threshold_var: The variance threshold for variance-based feature selection.
+  - n_neighbors_MI: The number of neighbors for mutual information-based feature selection.
+  - L1_Parameter: The parameter for L1-based feature selection.
+  - type_feature_selection: The type of feature selection method to use:
+      - "var": Variance thresholding.
+      - "anova": Analysis of Variance (ANOVA).
+      - "mi": Mutual information.
+      - "ufs": Univariate feature selection.
+      - "fs": Fisher score.
+      - "rfe": Recursive feature elimination.
+      - "ffs": Forward feature selection.
+      - "bfs": Backward feature selection.
+      - "rf": Random forest feature selection.
+      - "l1fs": L1-based feature selection.
+      - "tfs": Tree-based feature selection.
+      
+  Outputs:
+  - features: The selected features.
   ============================== Flowchart for the Feature selection function ================================
   1. Start
   2. Convert the input data to a NumPy array if it's not already.
