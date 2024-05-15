@@ -2,7 +2,7 @@ import numpy as np
 from sklearn import metrics
 import matplotlib.pyplot as plt
 
-# ============================================== Roc curve =================================================== 
+# ============================================== Roc curve ===================================================
 def roc_curve(model, data_train=None, data_test=None, label_train=None, label_test=None, k_fold=None,
               type_class=None, fig_size_Roc=(5, 3)):
     """
