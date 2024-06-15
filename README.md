@@ -80,4 +80,3 @@ Put the "biosig4format" folder on the desktop ---> [biosig4octmat](https://sourc
    *App15_FeatureExtraction_Classification.m:* :arrow_lower_right:<br/>
 ![12](https://user-images.githubusercontent.com/96347878/219234156-31c77e8a-0369-4fda-9b7d-b0928675e5bf.png)![13](https://user-images.githubusercontent.com/96347878/219234169-c2ac863e-77fd-4704-b438-7c8d52b2ab8d.png)
    
-  
